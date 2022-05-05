@@ -15,7 +15,6 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });
-    String nowo = DateFormat("MMMM").format(DateTime.now());
   }
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class _CalendarState extends State<Calendar> {
         Column(children:[
           Column(children: [
           Column(children: [
-          Container(decoration: const BoxDecoration(color: Colors.yellow,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 5,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
+          Container(decoration: const BoxDecoration(color: Colors.yellow,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
               Column(children: [
               Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
                 const Image(image: AssetImage("assets/logo.png"),)
@@ -40,7 +39,7 @@ class _CalendarState extends State<Calendar> {
           SingleChildScrollView(child:
             Column(children: [
               Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.yellow,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
-
+                Text(datowski())
               ),
               Card(
                 child: TableCalendar(
@@ -74,4 +73,36 @@ class _CalendarState extends State<Calendar> {
           ))]
     )));
   }
+}
+String datowski() {
+  var date = DateTime.now().toString();
+  var dateParse = DateTime.parse(date);
+  var formattedDate = "${dateParse.month}";
+  var here;
+  if(formattedDate=='12') {
+    here = 'December';
+  }if(formattedDate=='11'){
+    here = "November";
+  }if(formattedDate=='10'){
+    here = "October";
+  }if(formattedDate=='9'){
+    here = 'September';
+  }if(formattedDate=='8'){
+    here = 'August';
+  }if(formattedDate=='7'){
+    here = 'July';
+  }if(formattedDate=='6'){
+    here = 'June';
+  }if(formattedDate=='5'){
+    here = 'May';
+  }if(formattedDate=='4'){
+    here = 'April';
+  }if(formattedDate=='3'){
+    here = 'March';
+  }if(formattedDate=='2'){
+    here = 'February';
+  }if(formattedDate=='1'){
+    here = 'January';
+  }
+  return here.toString();
 }
