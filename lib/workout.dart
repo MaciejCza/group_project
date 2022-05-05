@@ -17,25 +17,26 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(color: Colors.grey[100]),
             child: Column(children: <Widget>[
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.77,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height * 0.15,
-                        decoration: BoxDecoration(color: Colors.orange),
+                        decoration: const BoxDecoration(color: Colors.orange),
                       ),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
                             const Text('Weekly workout progress',
                                 style: TextStyle(fontSize: 20)),
@@ -68,14 +69,14 @@ class _WorkoutState extends State<Workout> {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
-                                  Icon(
+                                  const Icon(
                                     Icons.fitness_center,
                                     color: Colors.orange,
                                     size: 24.0,
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text(
+                                  const Text(
                                       '  ABS and Back                                      ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
@@ -91,21 +92,21 @@ class _WorkoutState extends State<Workout> {
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
                             const Text('12.12.2022',
                                 style: TextStyle(fontSize: 20)),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
-                                  Icon(
+                                  const Icon(
                                     Icons.fitness_center,
                                     color: Colors.orange,
                                     size: 24.0,
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text(
+                                  const Text(
                                       ' Leg day                                                  ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
@@ -121,21 +122,21 @@ class _WorkoutState extends State<Workout> {
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
                             const Text('14.12.2022',
                                 style: TextStyle(fontSize: 20)),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
-                                  Icon(
+                                  const Icon(
                                     Icons.fitness_center,
                                     color: Colors.orange,
                                     size: 24.0,
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text(
+                                  const Text(
                                       ' Full body workout                                ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
@@ -151,21 +152,21 @@ class _WorkoutState extends State<Workout> {
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
                             const Text('16.12.2022',
                                 style: TextStyle(fontSize: 20)),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
-                                  Icon(
+                                  const Icon(
                                     Icons.fitness_center,
                                     color: Colors.orange,
                                     size: 24.0,
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text(
+                                  const Text(
                                       ' Jogging                                                 ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
