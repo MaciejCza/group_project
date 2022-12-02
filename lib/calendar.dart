@@ -22,6 +22,14 @@ class Calendar extends StatelessWidget {
                     calendarFormat: CalendarFormat.month,
                     daysOfWeekHeight: 40,
                     rowHeight: 60,
+                    startingDayOfWeek: StartingDayOfWeek.monday,
+                    
+                    headerStyle: const HeaderStyle(
+                      titleTextStyle: TextStyle(color: Colors.black, fontSize: 20,),
+                      decoration: BoxDecoration(color: Colors.yellow,borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))),
+                    formatButtonTextStyle: TextStyle(fontSize: 0),
+                    formatButtonDecoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(0)))
+                    ),
                   )
                 ),
               ],
