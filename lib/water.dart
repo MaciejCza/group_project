@@ -25,14 +25,14 @@ class water extends StatelessWidget {
             Text('1 glass'),
             SizedBox(height: 10),
             LinearProgressIndicator(
-                value: (0.1),
+              value: (0.1),
             ),
             SizedBox(height: 10),
             TextButton(
                 child: Text('-'),
-              onPressed: () {
+                onPressed: () {
                   glass+='-0.125';
-              }
+                }
             ),
             TextButton(
                 child: Text('+'),
