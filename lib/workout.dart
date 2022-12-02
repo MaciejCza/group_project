@@ -16,9 +16,10 @@ class Workout extends StatelessWidget {
     return Scaffold(
         body: Container(
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(color: Colors.grey),
-            child: Container(
-                height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(color: Colors.white10),
+            child: Column(children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height * 0.73,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -34,14 +35,20 @@ class Workout extends StatelessWidget {
                             const Text('Weekly workout progress',
                                 style: TextStyle(fontSize: 20)),
                             br,
-                            LinearPercentIndicator(
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              lineHeight: 7,
-                              percent: 1 / 4,
-                              progressColor: Colors.white,
-                              backgroundColor: Colors.orange,
-                              barRadius: const Radius.circular(16),
-                            ),
+                            ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topRight: Radius.circular(40),
+                                  topLeft: Radius.circular(40),
+                                ),
+                                child: LinearPercentIndicator(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.90,
+                                  lineHeight: 8,
+                                  percent: 1 / 4,
+                                  progressColor: Colors.white,
+                                  backgroundColor: Colors.orange,
+                                  barRadius: const Radius.circular(160),
+                                )),
                             brsmol,
                             const Text('1 out of 4 workouts',
                                 style: TextStyle(fontSize: 10))
@@ -66,9 +73,48 @@ class Workout extends StatelessWidget {
                                   )
                                 ])),
                           ])),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.5,
-                      )
-                    ]))));
+                      Container(
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: MediaQuery.of(context).size.width - 14,
+                          decoration: BoxDecoration(color: Colors.white),
+                          child: Column(children: [
+                            const Text('Today workout',
+                                style: TextStyle(fontSize: 20)),
+                            Align(
+                                alignment: Alignment.topRight,
+                                child: Row(children: <Widget>[
+                                  Text(
+                                      'Today workout                                       ',
+                                      style: TextStyle(fontSize: 20)),
+                                  Checkbox(
+                                    checkColor: Colors.black,
+                                    value: isChecked,
+                                    onChanged: (bool? value) {},
+                                  )
+                                ])),
+                          ])),
+                      Container(
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: MediaQuery.of(context).size.width - 14,
+                          decoration: BoxDecoration(color: Colors.white),
+                          child: Column(children: [
+                            const Text('Today workout',
+                                style: TextStyle(fontSize: 20)),
+                            Align(
+                                alignment: Alignment.topRight,
+                                child: Row(children: <Widget>[
+                                  Text(
+                                      'Today workout                                       ',
+                                      style: TextStyle(fontSize: 20)),
+                                  Checkbox(
+                                    checkColor: Colors.black,
+                                    value: isChecked,
+                                    onChanged: (bool? value) {},
+                                  )
+                                ])),
+                          ]))
+                    ]),
+              )
+            ])));
   }
 }
