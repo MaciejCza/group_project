@@ -12,8 +12,11 @@ class Calendar extends StatelessWidget {
         Container(child:
           Container(child:
             SingleChildScrollView(child:
+              Column(children: [
+                Card(margin: const EdgeInsets.all(8.0),elevation: 5.0,shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))))
+              ],
 
-
+              )
             )
           )
       )
