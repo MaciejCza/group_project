@@ -9,7 +9,13 @@ class Shopping extends StatelessWidget {
         body: Container(
           height: MediaQuery.of(context).size.height,
             child: Row(
-              children: [],
+              children: [
+              LinearProgressIndicator(
+              backgroundColor: Colors.orangeAccent,
+              valueColor: AlwaysStoppedAnimation(Colors.blue),
+              minHeight: 25
+              )
+              ],
             )
     )
     );

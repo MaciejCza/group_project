@@ -2,24 +2,12 @@ import 'main.dart';
 import 'app.dart';
 import 'package:flutter/material.dart';
 
-class Calc extends StatelesWidget {
+class Workout extends StatelessWidget {
+  const Workout({Key? key}) : super(key: key);
 
-}
-
-class _CalcState extends State<Calc> {
-
-
-
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-
-          )),
-    );
+    return SafeArea(
+        child: Container(child: Container(child: Text('Hello World'))));
   }
 }
-
-
-
