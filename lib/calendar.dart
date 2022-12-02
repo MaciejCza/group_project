@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:html';
-
 import 'main.dart';
 import 'app.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +9,12 @@ class Calendar extends StatelessWidget {
     return Scaffold(body: Container(height: MediaQuery.of(context).size.height,
         child:
         Column(children:[
-          Container(decoration: BoxDecoration(color: Colors.yellow),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.22,child:
-              const Image(image: AssetImage("assets/logo.png"),)
-          ),
+          Column(children: [
+          Column(children: [
+          Container(decoration: BoxDecoration(color: Colors.yellow,boxShadow:[ BoxShadow(color: Colors.grey,spreadRadius: 5,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.22,child:
+          const Image(image: AssetImage("assets/logo.png"),)
+          )])
+          ]),
           SingleChildScrollView(child:
             Column(children: [
               Card(margin: const EdgeInsets.all(8.0),elevation: 5.0,shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)),side: BorderSide(color: Colors.black,width: 2.0),),
