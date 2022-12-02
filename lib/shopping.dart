@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+const br = Text('', style: TextStyle(fontSize: 20));
 
 class Shopping extends StatefulWidget {
   const Shopping({Key? key}) : super(key: key);
@@ -17,26 +18,20 @@ bool values = false;
     return Scaffold(
         body: Container(
           height: MediaQuery.of(context).size.height,
-            child: Row(
-              children: [
+            child: Container(
+                height: MediaQuery.of(context).size.height*0.2,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
                 LinearPercentIndicator(
-                  width: MediaQuery.of(context).size.width*0.20,
+                  width: MediaQuery.of(context).size.width*0.90,
                   lineHeight: 30.0,
                   percent: 1/4,
                   progressColor: Colors.white,
                   backgroundColor: Colors.orange,
                   barRadius: const Radius.circular(16),
                 ),
-                Checkbox(
-                    checkColor: Colors.green,
-                    activeColor: Colors.red,
-                    value: this.valuefirst,
-                    onChanged: (bool ?value) {
-                    setState((){
-                    this.valuefirst = values;
-                  }
-                    );})
-              ],
+              ]),
             )
     )
     );
