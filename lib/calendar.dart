@@ -17,7 +17,7 @@ class Calendar extends StatelessWidget {
                 const Image(image: AssetImage("assets/logo.png"),)
               ),
               Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
-                const Text('Bussy',style: TextStyle(fontSize: 24),)
+                const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
               )
               ]))
           ])
