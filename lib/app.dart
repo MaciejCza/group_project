@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const (title: 'HomePage'),
+      home: const (title: 'Tomasz Mrozek'),
     );
   }
 }
