@@ -7,7 +7,8 @@ class Workout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Container(child: Container(child: Text('Hello World'))));
+    return Scaffold(
+        appBar: AppBar(title: const Text('AppBar Demo')),
+        body: Container(child: Container(child: Text('Hello World'))));
   }
 }
