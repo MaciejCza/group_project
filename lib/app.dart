@@ -1,5 +1,7 @@
+import 'package:busy_bee_planner/calendar.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'calendar.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const (title: 'HomePage'),
+      home: const Calendar(),
     );
   }
 }
