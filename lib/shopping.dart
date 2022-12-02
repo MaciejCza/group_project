@@ -5,6 +5,19 @@ class Shopping extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+            child: Row(
+              children: [
+              LinearProgressIndicator(
+              backgroundColor: Colors.orangeAccent,
+              valueColor: AlwaysStoppedAnimation(Colors.blue),
+              minHeight: 25
+              )
+              ],
+            )
+    )
+    );
   }
 }
