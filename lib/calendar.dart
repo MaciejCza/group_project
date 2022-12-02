@@ -7,7 +7,7 @@ class Calendar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:
+    return SafeArea(body:
       Container(child:
         Container()
       )
