@@ -15,7 +15,14 @@ class Calendar extends StatelessWidget {
             SingleChildScrollView(child:
               Column(children: [
                 Card(margin: const EdgeInsets.all(8.0),elevation: 5.0,shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)),side: BorderSide(color: Colors.black,width: 2.0),),
-                  child: TableCalendar()
+                  child: TableCalendar(
+                    firstDay: DateTime.utc(2010,10,16),
+                    lastDay: DateTime.utc(2030,3,14),
+                    focusedDay: DateTime.now(),
+                    calendarFormat: CalendarFormat.month,
+                    daysOfWeekHeight: 40,
+                    rowHeight: 60,
+                  )
                 ),
               ],
 
