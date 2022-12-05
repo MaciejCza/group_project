@@ -50,10 +50,10 @@ class _ShoppingState extends State<Shopping> {
                       width: MediaQuery.of(context).size.width*0.9,
                       lineHeight: 10.0,
                       percent: bar/4,
-                      progressColor: Colors.white,
+                      progressColor: Colors.cyan[300],
                       backgroundColor: Colors.orange,
                       barRadius: const Radius.circular(16),
-                    ),br, Text('${bar} out of 4')
+                    ),br, Text('$bar out of 4')
                   ],),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
