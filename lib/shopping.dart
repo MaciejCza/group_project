@@ -57,7 +57,7 @@ class _ShoppingState extends State<Shopping> {
                   color: Colors.white,
                   child: Column(children: [
                     CheckboxListTile(
-                      title: const Text('Buy jacket', style: TextStyle(decoration: TextDecoration.none)),
+                      title: Text('Buy jacket', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
                       checkColor: Colors.orange,
                       value: isChecked,
                       onChanged: (bool? value) {},
@@ -69,7 +69,7 @@ class _ShoppingState extends State<Shopping> {
                   color: Colors.white,
                   child: Column(children: [
                     CheckboxListTile(
-                      title: const Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none),),
+                      title: Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
                       checkColor: Colors.orange,
                       value: isChecked,
                       onChanged: (value) {
@@ -85,7 +85,7 @@ class _ShoppingState extends State<Shopping> {
                   color: Colors.white,
                   child: Column(children: [
                     CheckboxListTile(
-                      title: const Text('Program button'),
+                      title: Text('Program button', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
                       checkColor: Colors.orange,
                       value: isChecked,
                       onChanged: (bool? value) {},
@@ -97,7 +97,7 @@ class _ShoppingState extends State<Shopping> {
                   color: Colors.white,
                   child: Column(children: [
                     CheckboxListTile(
-                      title: const Text('Make everything work together'),
+                      title: Text('Make everything work together', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
                       checkColor: Colors.orange,
                       value: isChecked,
                       onChanged: (bool? value) {},
