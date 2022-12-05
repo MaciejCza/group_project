@@ -16,6 +16,11 @@ class _ShoppingState extends State<Shopping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+          backgroundColor: Colors.orangeAccent,
+        ),
         body: Container(
           height: MediaQuery.of(context).size.height,
           color: Colors.grey[100],
@@ -29,7 +34,7 @@ class _ShoppingState extends State<Shopping> {
                   const Image(image: AssetImage("assets/logo.png"),)
                   ),
                   Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
-                  const Text('Bussy',style: TextStyle(fontSize: 24),)
+                  const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
                   )
                 ])),br,
                 Container(
