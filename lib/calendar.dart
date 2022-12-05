@@ -15,7 +15,14 @@ class _CalendarState extends State<Calendar> {
       today = day;
     });
   }
+  late Map<DateTime, List<dynamic>> _events;
+  late List<dynamic> _selectedEvents;
   @override
+  void initState(){
+    super.initState();
+    _events = {};
+    _selectedEvents = [];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(decoration: const BoxDecoration(color: Colors.white),height: MediaQuery.of(context).size.height,
