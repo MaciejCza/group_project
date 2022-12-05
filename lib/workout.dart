@@ -16,10 +16,10 @@ class Workout extends StatelessWidget {
     return Scaffold(
         body: Container(
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(color: Colors.white10),
+            decoration: BoxDecoration(color: Colors.grey[100]),
             child: Column(children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * 0.73,
+                height: MediaQuery.of(context).size.height * 0.77,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -69,6 +69,9 @@ class Workout extends StatelessWidget {
                                   Checkbox(
                                     checkColor: Colors.black,
                                     value: isChecked,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
                                     onChanged: (bool? value) {},
                                   )
                                 ])),
@@ -89,6 +92,9 @@ class Workout extends StatelessWidget {
                                   Checkbox(
                                     checkColor: Colors.black,
                                     value: isChecked,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
                                     onChanged: (bool? value) {},
                                   )
                                 ])),
@@ -108,6 +114,9 @@ class Workout extends StatelessWidget {
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
                                     value: isChecked,
                                     onChanged: (bool? value) {},
                                   )
@@ -129,6 +138,9 @@ class Workout extends StatelessWidget {
                                   Checkbox(
                                     checkColor: Colors.black,
                                     value: isChecked,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
                                     onChanged: (bool? value) {},
                                   )
                                 ])),
