@@ -50,8 +50,8 @@ class _CalendarState extends State<Calendar> {
               ),
               Card(
                 child: TableCalendar(
-                  firstDay: DateTime.utc(2010,10,16),
-                  lastDay: DateTime.utc(2030,3,14),
+                  firstDay: DateTime.utc(0,10,16),
+                  lastDay: DateTime.utc(999999999999999999,3,14),
                   focusedDay: today,
                   calendarFormat: CalendarFormat.month,
                   headerVisible: false,
