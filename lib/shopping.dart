@@ -30,13 +30,13 @@ class _ShoppingState extends State<Shopping> {
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: <Widget>[
-                Container(decoration: const BoxDecoration(color: Colors.yellow,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 5,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
+                Container(decoration: const BoxDecoration(color: Colors.orange,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
                 Column(children: [
                   Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
-                    const Image(image: AssetImage("assets/logo.png"),)
+                  const Image(image: AssetImage("assets/logo.png"),)
                   ),
                   Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
-                    const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
+                  const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
                   )
                 ])),br,
                 Container(
