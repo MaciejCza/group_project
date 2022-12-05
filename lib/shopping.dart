@@ -58,9 +58,13 @@ class _ShoppingState extends State<Shopping> {
                   child: Column(children: [
                     CheckboxListTile(
                       title: Text('Buy jacket', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      checkColor: Colors.orange,
+                      activeColor: Colors.orange,
                       value: isChecked,
-                      onChanged: (bool? value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
                     ),
                   ],),),br,
                 Container(
@@ -70,7 +74,7 @@ class _ShoppingState extends State<Shopping> {
                   child: Column(children: [
                     CheckboxListTile(
                       title: Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      checkColor: Colors.orange,
+                      activeColor: Colors.orange,
                       value: isChecked,
                       onChanged: (value) {
                         setState(() {
@@ -86,9 +90,13 @@ class _ShoppingState extends State<Shopping> {
                   child: Column(children: [
                     CheckboxListTile(
                       title: Text('Program button', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      checkColor: Colors.orange,
+                      activeColor: Colors.orange,
                       value: isChecked,
-                      onChanged: (bool? value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
                     ),
                   ],),),br,
                 Container(
@@ -98,9 +106,13 @@ class _ShoppingState extends State<Shopping> {
                   child: Column(children: [
                     CheckboxListTile(
                       title: Text('Make everything work together', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      checkColor: Colors.orange,
+                      activeColor: Colors.orange,
                       value: isChecked,
-                      onChanged: (bool? value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
                     ),
                   ],),)
     ])
