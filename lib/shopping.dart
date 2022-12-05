@@ -53,7 +53,7 @@ class _ShoppingState extends State<Shopping> {
                       progressColor: Colors.white,
                       backgroundColor: Colors.orange,
                       barRadius: const Radius.circular(16),
-                    ),br, Text('${bar} out of 4')
+                    ),br, Text('$bar out of 4')
                   ],),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
