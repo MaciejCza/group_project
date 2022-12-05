@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 const br = Text('', style: TextStyle(fontSize: 20));
 const brsmol = Text('', style: TextStyle(fontSize: 10));
 const brsmoll = Text('', style: TextStyle(fontSize: 5));
-bool isChecked = false;
+bool isChecked = true;
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -30,9 +30,32 @@ class _WorkoutState extends State<Workout> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        decoration: const BoxDecoration(color: Colors.orange),
-                      ),
+                          decoration: const BoxDecoration(
+                              color: Colors.orange,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey,
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: Offset(0, 3))
+                              ]),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 0.17,
+                          child: Column(children: [
+                            Container(
+                                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                                height:
+                                    MediaQuery.of(context).size.height * 0.07,
+                                child: const Image(
+                                  image: AssetImage("assets/logo.png"),
+                                )),
+                            Container(
+                                margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                child: const Text(
+                                  'BusyBeePlanner',
+                                  style: TextStyle(fontSize: 24),
+                                ))
+                          ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
