@@ -6,6 +6,9 @@ const br = Text('', style: TextStyle(fontSize: 20));
 const brsmol = Text('', style: TextStyle(fontSize: 10));
 const brsmoll = Text('', style: TextStyle(fontSize: 5));
 bool checkedValue = false;
+bool checkedValue1 = false;
+bool checkedValue2 = false;
+bool checkedValue3 = false;
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -100,22 +103,26 @@ class _WorkoutState extends State<Workout> {
                                   const Text(
                                       '  ABS and Back                                      ',
                                       style: TextStyle(fontSize: 20)),
-                                  Checkbox(
-                                    checkColor: Colors.black,
-                                    value: checkedValue,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        if (checkedValue == false) {
-                                          checkedValue = true;
-                                        } else {
-                                          checkedValue = false;
-                                        }
-                                      });
-                                    },
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                  )
+                                  Theme(
+                                      data: ThemeData(
+                                          unselectedWidgetColor: Colors.orange),
+                                      child: Checkbox(
+                                        checkColor: Colors.orange,
+                                        value: checkedValue,
+                                        activeColor: Colors.orange,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            if (checkedValue == false) {
+                                              checkedValue = true;
+                                            } else {
+                                              checkedValue = false;
+                                            }
+                                          });
+                                        },
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ))
                                 ])),
                           ])),
                       Container(
@@ -138,14 +145,26 @@ class _WorkoutState extends State<Workout> {
                                   const Text(
                                       ' Leg day                                                  ',
                                       style: TextStyle(fontSize: 20)),
-                                  Checkbox(
-                                    checkColor: Colors.black,
-                                    value: checkedValue,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                    onChanged: (bool? value) {},
-                                  )
+                                  Theme(
+                                      data: ThemeData(
+                                          unselectedWidgetColor: Colors.orange),
+                                      child: Checkbox(
+                                        checkColor: Colors.orange,
+                                        value: checkedValue1,
+                                        activeColor: Colors.orange,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            if (checkedValue1 == false) {
+                                              checkedValue1 = true;
+                                            } else {
+                                              checkedValue1 = false;
+                                            }
+                                          });
+                                        },
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ))
                                 ])),
                           ])),
                       Container(
@@ -168,14 +187,26 @@ class _WorkoutState extends State<Workout> {
                                   const Text(
                                       ' Full body workout                                ',
                                       style: TextStyle(fontSize: 20)),
-                                  Checkbox(
-                                    checkColor: Colors.black,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                    value: checkedValue,
-                                    onChanged: (bool? value) {},
-                                  )
+                                  Theme(
+                                      data: ThemeData(
+                                          unselectedWidgetColor: Colors.orange),
+                                      child: Checkbox(
+                                        checkColor: Colors.orange,
+                                        value: checkedValue2,
+                                        activeColor: Colors.orange,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            if (checkedValue2 == false) {
+                                              checkedValue2 = true;
+                                            } else {
+                                              checkedValue2 = false;
+                                            }
+                                          });
+                                        },
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ))
                                 ])),
                           ])),
                       Container(
@@ -198,14 +229,26 @@ class _WorkoutState extends State<Workout> {
                                   const Text(
                                       ' Jogging                                                 ',
                                       style: TextStyle(fontSize: 20)),
-                                  Checkbox(
-                                    checkColor: Colors.black,
-                                    value: checkedValue,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                    onChanged: (bool? value) {},
-                                  )
+                                  Theme(
+                                      data: ThemeData(
+                                          unselectedWidgetColor: Colors.orange),
+                                      child: Checkbox(
+                                        checkColor: Colors.orange,
+                                        value: checkedValue3,
+                                        activeColor: Colors.orange,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            if (checkedValue3 == false) {
+                                              checkedValue3 = true;
+                                            } else {
+                                              checkedValue3 = false;
+                                            }
+                                          });
+                                        },
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ))
                                 ])),
                           ]))
                     ]),
