@@ -9,7 +9,6 @@ class Shopping extends StatefulWidget {
   State<Shopping> createState() => _ShoppingState();
 }
 bool isChecked = false;
-
 class _ShoppingState extends State<Shopping> {
 
 
@@ -70,7 +69,7 @@ class _ShoppingState extends State<Shopping> {
                   color: Colors.white,
                   child: Column(children: [
                     CheckboxListTile(
-                      title: const Text('Program checkboxes'),
+                      title: const Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none),),
                       checkColor: Colors.orange,
                       value: isChecked,
                       onChanged: (value) {
