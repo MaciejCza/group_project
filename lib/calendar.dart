@@ -2,6 +2,7 @@ import 'main.dart';
 import 'app.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/intl.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
 
@@ -14,7 +15,7 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });
-    var mont = DateTime.now();
+    String nowo = DateFormat("MMMM").format(DateTime.now());
   }
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _CalendarState extends State<Calendar> {
           SingleChildScrollView(child:
             Column(children: [
               Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.yellow,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
-                Text('mont')
+                  Text()
               ),
               Card(
                 child: TableCalendar(
