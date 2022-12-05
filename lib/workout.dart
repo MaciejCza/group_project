@@ -1,13 +1,11 @@
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import 'main.dart';
-import 'app.dart';
 import 'package:flutter/material.dart';
 
 const br = Text('', style: TextStyle(fontSize: 20));
 const brsmol = Text('', style: TextStyle(fontSize: 10));
 const brsmoll = Text('', style: TextStyle(fontSize: 5));
-bool isChecked = true;
+bool checkedValue = false;
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -104,11 +102,19 @@ class _WorkoutState extends State<Workout> {
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
-                                    value: isChecked,
+                                    value: checkedValue,
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        if (checkedValue == false) {
+                                          checkedValue = true;
+                                        } else {
+                                          checkedValue = false;
+                                        }
+                                      });
+                                    },
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(5.0)),
-                                    onChanged: (bool? value) {},
                                   )
                                 ])),
                           ])),
@@ -134,7 +140,7 @@ class _WorkoutState extends State<Workout> {
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
-                                    value: isChecked,
+                                    value: checkedValue,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(5.0)),
@@ -167,7 +173,7 @@ class _WorkoutState extends State<Workout> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(5.0)),
-                                    value: isChecked,
+                                    value: checkedValue,
                                     onChanged: (bool? value) {},
                                   )
                                 ])),
@@ -194,7 +200,7 @@ class _WorkoutState extends State<Workout> {
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
-                                    value: isChecked,
+                                    value: checkedValue,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(5.0)),
