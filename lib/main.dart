@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app.dart';//jebać czarnych
+import 'app.dart';
 void main() {
   runApp(const MyApp());
 }
