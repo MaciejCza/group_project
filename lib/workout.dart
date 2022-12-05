@@ -9,9 +9,14 @@ const brsmol = Text('', style: TextStyle(fontSize: 10));
 const brsmoll = Text('', style: TextStyle(fontSize: 5));
 bool isChecked = false;
 
-class Workout extends StatelessWidget {
+class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
 
+  @override
+  State<Workout> createState() => _WorkoutState();
+}
+
+class _WorkoutState extends State<Workout> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
@@ -63,8 +68,15 @@ class Workout extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
+                                  Icon(
+                                    Icons.fitness_center,
+                                    color: Colors.orange,
+                                    size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
                                   Text(
-                                      'ABS and Back                                             ',
+                                      '  ABS and Back                                      ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
@@ -86,8 +98,15 @@ class Workout extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
+                                  Icon(
+                                    Icons.fitness_center,
+                                    color: Colors.orange,
+                                    size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
                                   Text(
-                                      'Leg day                                                        ',
+                                      ' Leg day                                                  ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
@@ -109,8 +128,15 @@ class Workout extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
+                                  Icon(
+                                    Icons.fitness_center,
+                                    color: Colors.orange,
+                                    size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
                                   Text(
-                                      'Full body workout                                      ',
+                                      ' Full body workout                                ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
@@ -132,8 +158,15 @@ class Workout extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
+                                  Icon(
+                                    Icons.fitness_center,
+                                    color: Colors.orange,
+                                    size: 24.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
                                   Text(
-                                      'Jogging                                                       ',
+                                      ' Jogging                                                 ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
