@@ -12,6 +12,7 @@ bool isChecked = false;
 bool checkedIs = false;
 bool checked = false;
 bool onChecked = false;
+int bar = 0;
 class _ShoppingState extends State<Shopping> {
 
 
@@ -48,11 +49,11 @@ class _ShoppingState extends State<Shopping> {
                     LinearPercentIndicator(
                       width: MediaQuery.of(context).size.width*0.9,
                       lineHeight: 10.0,
-                      percent: 1/4,
-                      progressColor: Colors.white,
+                      percent: bar/4,
+                      progressColor: Colors.cyan[300],
                       backgroundColor: Colors.orange,
                       barRadius: const Radius.circular(16),
-                    ),br, const Text('1 out of 4')
+                    ),br, Text('$bar out of 4')
                   ],),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
@@ -65,6 +66,12 @@ class _ShoppingState extends State<Shopping> {
                       value: checkedIs,
                       onChanged: (value) {
                         setState(() {
+                          if(checkedIs == false){
+                            bar = bar + 1;
+                          }
+                          else {
+                            bar = bar - 1;
+                          }
                           checkedIs = !checkedIs;
                         });
                       },
@@ -81,6 +88,12 @@ class _ShoppingState extends State<Shopping> {
                       value: isChecked,
                       onChanged: (value) {
                         setState(() {
+                          if(isChecked == false){
+                            bar = bar + 1;
+                          }
+                          else {
+                            bar = bar - 1;
+                          }
                           isChecked = !isChecked;
                         });
                       },
@@ -97,6 +110,12 @@ class _ShoppingState extends State<Shopping> {
                       value: checked,
                       onChanged: (value) {
                         setState(() {
+                          if(checked == false){
+                            bar = bar + 1;
+                          }
+                          else {
+                            bar = bar - 1;
+                          }
                           checked = !checked;
                         });
                       },
@@ -112,6 +131,12 @@ class _ShoppingState extends State<Shopping> {
                       activeColor: Colors.orange,
                       value: onChecked,
                       onChanged: (value) {
+                        if(onChecked == false){
+                          bar = bar + 1;
+                        }
+                        else {
+                          bar = bar - 1;
+                        }
                         setState(() {
                           onChecked = !onChecked;
                         });

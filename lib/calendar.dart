@@ -15,7 +15,14 @@ class _CalendarState extends State<Calendar> {
       today = day;
     });
   }
+  late Map<DateTime, List<dynamic>> _events;
+  late List<dynamic> _selectedEvents;
   @override
+  void initState(){
+    super.initState();
+    _events = {};
+    _selectedEvents = [];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(decoration: const BoxDecoration(color: Colors.white),height: MediaQuery.of(context).size.height,
@@ -43,8 +50,8 @@ class _CalendarState extends State<Calendar> {
               ),
               Card(
                 child: TableCalendar(
-                  firstDay: DateTime.utc(2010,10,16),
-                  lastDay: DateTime.utc(2030,3,14),
+                  firstDay: DateTime.utc(0,10,16),
+                  lastDay: DateTime.utc(999999999999999999,3,14),
                   focusedDay: today,
                   calendarFormat: CalendarFormat.month,
                   headerVisible: false,
@@ -55,7 +62,7 @@ class _CalendarState extends State<Calendar> {
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
                   availableGestures: AvailableGestures.all,
                   selectedDayPredicate: (day) => isSameDay(day, today),
-                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),todayDecoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle),selectedDecoration: BoxDecoration(color: Colors.deepOrangeAccent,shape: BoxShape.circle)),
+                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),todayDecoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle)),
                   headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     leftChevronVisible: false,
