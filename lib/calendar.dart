@@ -55,7 +55,7 @@ class _CalendarState extends State<Calendar> {
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
                   availableGestures: AvailableGestures.all,
                   selectedDayPredicate: (day) => isSameDay(day, today),
-                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),todayDecoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle),selectedDecoration: BoxDecoration(color: Colors.deepOrangeAccent,shape: BoxShape.circle)),
+                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),todayDecoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle)),
                   headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     leftChevronVisible: false,
