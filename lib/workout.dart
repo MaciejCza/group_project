@@ -56,7 +56,7 @@ class Workout extends StatelessWidget {
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
                             const Text('Today workout',
                                 style: TextStyle(fontSize: 20)),
@@ -64,7 +64,7 @@ class Workout extends StatelessWidget {
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
                                   Text(
-                                      'Today workout                                       ',
+                                      'ABS and Back                                             ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
@@ -78,13 +78,13 @@ class Workout extends StatelessWidget {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('Today workout',
+                            const Text('12.12.2022',
                                 style: TextStyle(fontSize: 20)),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
                                   Text(
-                                      'Today workout                                       ',
+                                      'Leg day                                                        ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
@@ -98,13 +98,33 @@ class Workout extends StatelessWidget {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('Today workout',
+                            const Text('14.12.2022',
                                 style: TextStyle(fontSize: 20)),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
                                   Text(
-                                      'Today workout                                       ',
+                                      'Full body workout                                      ',
+                                      style: TextStyle(fontSize: 20)),
+                                  Checkbox(
+                                    checkColor: Colors.black,
+                                    value: isChecked,
+                                    onChanged: (bool? value) {},
+                                  )
+                                ])),
+                          ])),
+                      Container(
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: MediaQuery.of(context).size.width - 14,
+                          decoration: BoxDecoration(color: Colors.white),
+                          child: Column(children: [
+                            const Text('16.12.2022',
+                                style: TextStyle(fontSize: 20)),
+                            Align(
+                                alignment: Alignment.topRight,
+                                child: Row(children: <Widget>[
+                                  Text(
+                                      'Jogging                                                       ',
                                       style: TextStyle(fontSize: 20)),
                                   Checkbox(
                                     checkColor: Colors.black,
