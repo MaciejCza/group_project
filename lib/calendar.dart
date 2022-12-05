@@ -5,7 +5,6 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
-
   @override
   State<Calendar> createState() => _CalendarState();
 }
@@ -17,13 +16,14 @@ class _CalendarState extends State<Calendar> {
     });
   }
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(decoration: const BoxDecoration(color: Colors.white),height: MediaQuery.of(context).size.height,
         child:
         Column(children:[
           Column(children: [
           Column(children: [
-          Container(decoration: const BoxDecoration(color: Colors.yellow,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
+          Container(decoration: const BoxDecoration(color: Colors.orange,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
               Column(children: [
               Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
                 const Image(image: AssetImage("assets/logo.png"),)
@@ -35,10 +35,10 @@ class _CalendarState extends State<Calendar> {
           ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.28,decoration: const BoxDecoration(color: Colors.white),child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.38,decoration: const BoxDecoration(color: Colors.white),child:
           SingleChildScrollView(child:
             Column(children: [
-              Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.yellow,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
+              Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
                 Text(datowski())
               ),
               Card(
@@ -49,7 +49,7 @@ class _CalendarState extends State<Calendar> {
                   calendarFormat: CalendarFormat.month,
                   headerVisible: false,
                   daysOfWeekHeight: 25,
-                  rowHeight: 30,
+                  rowHeight: 40,
                   onDaySelected: _onDaySelected,
                   startingDayOfWeek: StartingDayOfWeek.monday,
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
