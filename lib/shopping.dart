@@ -54,7 +54,7 @@ class _ShoppingState extends State<Shopping> {
                       backgroundColor: Colors.white,
                       animation: true,
                       animateFromLastPercent: true,
-                      animationDuration: 1500,
+                      animationDuration: 500,
                       barRadius: const Radius.circular(16),
                     ),br, Text('$bar out of 4')
                   ],),),br,
