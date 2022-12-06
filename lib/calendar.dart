@@ -15,7 +15,11 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
-
+    final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
+      foregroundColor: Colors.black,
+      backgroundColor: Colors.white,
+      minimumSize: Size(50,50),
+    );
     CalendarFormat _calendarFormat = CalendarFormat.month;
     RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
     DateTime _focusedDay = DateTime.now();
@@ -47,7 +51,7 @@ class _CalendarState extends State<Calendar> {
           ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.38,decoration: const BoxDecoration(color: Colors.white),child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.73,decoration: const BoxDecoration(color: Colors.grey),child:
           SingleChildScrollView(child:
             Column(children: [
               Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
@@ -80,10 +84,36 @@ class _CalendarState extends State<Calendar> {
                 )
               ),
             ],
-
             )
-          ))]
-    )));
+          )),
+        Row(children:[
+          ElevatedButton(onPressed: (){},
+              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 24,)
+          ),
+          ElevatedButton(
+            onPressed: (){},
+            child: const Text('nig')
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+              onPressed: (){},
+              child: const Text('nig')
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+              onPressed: (){},
+              child: const Text('nig')
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+              onPressed: (){},
+              child: const Text('nig')
+          )
+        ],)
+        ])
+    )
+
+    );
   }
 }
 String datowski() {
