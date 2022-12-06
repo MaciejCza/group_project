@@ -90,40 +90,40 @@ class _WorkoutState extends State<Workout> {
                           child: Column(children: [
                             const Text('Today workout',
                                 style: TextStyle(fontSize: 20)),
-                            Align(
-                                alignment: Alignment.topRight,
-                                child: Row(children: <Widget>[
-                                  const Icon(
-                                    Icons.fitness_center,
-                                    color: Colors.orange,
-                                    size: 24.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
-                                  ),
-                                  const Text(
-                                      '  ABS and Back                                      ',
-                                      style: TextStyle(fontSize: 20)),
-                                  Theme(
-                                      data: ThemeData(
-                                          unselectedWidgetColor: Colors.orange),
-                                      child: Checkbox(
-                                        checkColor: Colors.orange,
-                                        value: checkedValue,
-                                        activeColor: Colors.orange,
-                                        onChanged: (newValue) {
-                                          setState(() {
-                                            if (checkedValue == false) {
-                                              checkedValue = true;
-                                            } else {
-                                              checkedValue = false;
-                                            }
-                                          });
-                                        },
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0)),
-                                      ))
-                                ])),
+
+                            // alignment: Alignment.topRight,
+                            Row(children: [
+                              const Icon(
+                                Icons.fitness_center,
+                                color: Colors.orange,
+                                size: 24.0,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
+                              ),
+                              const Text('  ABS and Back',
+                                  style: TextStyle(fontSize: 20)),
+                              const Expanded(child: SizedBox()),
+                              Theme(
+                                  data: ThemeData(
+                                      unselectedWidgetColor: Colors.orange),
+                                  child: Checkbox(
+                                    checkColor: Colors.orange,
+                                    value: checkedValue,
+                                    activeColor: Colors.orange,
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        if (checkedValue == false) {
+                                          checkedValue = true;
+                                        } else {
+                                          checkedValue = false;
+                                        }
+                                      });
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
+                                  )),
+                            ]),
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
@@ -132,40 +132,38 @@ class _WorkoutState extends State<Workout> {
                           child: Column(children: [
                             const Text('12.12.2022',
                                 style: TextStyle(fontSize: 20)),
-                            Align(
-                                alignment: Alignment.topRight,
-                                child: Row(children: <Widget>[
-                                  const Icon(
-                                    Icons.fitness_center,
-                                    color: Colors.orange,
-                                    size: 24.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
-                                  ),
-                                  const Text(
-                                      ' Leg day                                                  ',
-                                      style: TextStyle(fontSize: 20)),
-                                  Theme(
-                                      data: ThemeData(
-                                          unselectedWidgetColor: Colors.orange),
-                                      child: Checkbox(
-                                        checkColor: Colors.orange,
-                                        value: checkedValue1,
-                                        activeColor: Colors.orange,
-                                        onChanged: (newValue) {
-                                          setState(() {
-                                            if (checkedValue1 == false) {
-                                              checkedValue1 = true;
-                                            } else {
-                                              checkedValue1 = false;
-                                            }
-                                          });
-                                        },
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0)),
-                                      ))
-                                ])),
+                            Row(children: <Widget>[
+                              const Icon(
+                                Icons.fitness_center,
+                                color: Colors.orange,
+                                size: 24.0,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
+                              ),
+                              const Text(' Leg day',
+                                  style: TextStyle(fontSize: 20)),
+                              const Expanded(child: SizedBox()),
+                              Theme(
+                                  data: ThemeData(
+                                      unselectedWidgetColor: Colors.orange),
+                                  child: Checkbox(
+                                    checkColor: Colors.orange,
+                                    value: checkedValue1,
+                                    activeColor: Colors.orange,
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        if (checkedValue1 == false) {
+                                          checkedValue1 = true;
+                                        } else {
+                                          checkedValue1 = false;
+                                        }
+                                      });
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0)),
+                                  ))
+                            ]),
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
@@ -184,9 +182,9 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  const Text(
-                                      ' Full body workout                                ',
+                                  const Text(' Full body workout',
                                       style: TextStyle(fontSize: 20)),
+                                  const Expanded(child: SizedBox()),
                                   Theme(
                                       data: ThemeData(
                                           unselectedWidgetColor: Colors.orange),
@@ -226,9 +224,9 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  const Text(
-                                      ' Jogging                                                 ',
+                                  const Text(' Jogging',
                                       style: TextStyle(fontSize: 20)),
+                                  const Expanded(child: SizedBox()),
                                   Theme(
                                       data: ThemeData(
                                           unselectedWidgetColor: Colors.orange),
