@@ -1,6 +1,10 @@
+import 'package:busy_bee_planner/shopping.dart';
+import 'package:busy_bee_planner/water.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import 'package:flutter/material.dart';
+
+import 'calendar.dart';
 
 const br = Text('', style: TextStyle(fontSize: 20));
 const brsmol = Text('', style: TextStyle(fontSize: 10));
@@ -254,7 +258,78 @@ class _WorkoutState extends State<Workout> {
                                 ])),
                           ]))
                     ]),
-              )
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.16),
+              Container(
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  child: Row(children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Shopping()));
+                        },
+                        child: const Icon(
+                          Icons.checklist_outlined,
+                          color: Colors.orange,
+                          size: 40,
+                        )),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Calendar()));
+                        },
+                        child: const Icon(
+                          Icons.calendar_month,
+                          color: Colors.orange,
+                          size: 40,
+                        )),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
+                    TextButton(
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black),
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.home,
+                          color: Colors.orange,
+                          size: 40,
+                        )),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
+                    TextButton(
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Workout()));
+                        },
+                        child: const Icon(
+                          Icons.fitness_center,
+                          color: Colors.orange,
+                          size: 40,
+                        )),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
+                    TextButton(
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const water()));
+                        },
+                        child: const Icon(
+                          Icons.water_drop,
+                          color: Colors.orange,
+                          size: 40,
+                        ))
+                  ]))
             ])));
   }
 }
