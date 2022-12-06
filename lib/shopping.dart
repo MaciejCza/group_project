@@ -69,11 +69,11 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(checkedIs == false){
-                            bar = bar + 0.25;
+                            bar = bar + 1/4;
                             progress = progress +1;
                           }
                           else {
-                            bar = bar - 0.25;
+                            bar = bar - 1/4;
                             progress = progress - 1;
                           }
                           checkedIs = !checkedIs;
@@ -93,11 +93,11 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(isChecked == false){
-                            bar = bar + 0.25;
+                            bar = bar + 1/4;
                             progress = progress + 1;
                           }
                           else {
-                            bar = bar - 0.25;
+                            bar = bar - 1/4;
                             progress = progress - 1;
                           }
                           isChecked = !isChecked;
@@ -117,11 +117,11 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(checked == false){
-                            bar = bar + 0.25;
+                            bar = bar + 1/4;
                             progress = progress + 1;
                           }
                           else {
-                            bar = bar - 0.25;
+                            bar = bar - 1/4;
                             progress = progress - 1;
                           }
                           checked = !checked;
@@ -140,11 +140,11 @@ class _ShoppingState extends State<Shopping> {
                       value: onChecked,
                       onChanged: (value) {
                         if(onChecked == false){
-                          bar = bar + 0.25;
+                          bar = bar + 1/4;
                           progress = progress + 1;
                         }
                         else {
-                          bar = bar - 0.25;
+                          bar = bar - 1/4;
                           progress = progress - 1;
                         }
                         setState(() {
