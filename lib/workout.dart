@@ -88,9 +88,10 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('Today workout',
-                                style: TextStyle(fontSize: 20)),
-
+                            Row(children: [
+                              const Text('Today workout',
+                                  style: TextStyle(fontSize: 20)),
+                            ]),
                             // alignment: Alignment.topRight,
                             Row(children: [
                               const Icon(
@@ -130,8 +131,9 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('12.12.2022',
-                                style: TextStyle(fontSize: 20)),
+                            Row(children: const [
+                              Text('12.12.22', style: TextStyle(fontSize: 20)),
+                            ]),
                             Row(children: <Widget>[
                               const Icon(
                                 Icons.fitness_center,
@@ -170,8 +172,9 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('14.12.2022',
-                                style: TextStyle(fontSize: 20)),
+                            Row(children: const [
+                              Text('14.12.22', style: TextStyle(fontSize: 20)),
+                            ]),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
@@ -212,8 +215,9 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('16.12.2022',
-                                style: TextStyle(fontSize: 20)),
+                            Row(children: const [
+                              Text('16.12.22', style: TextStyle(fontSize: 20)),
+                            ]),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Row(children: <Widget>[
