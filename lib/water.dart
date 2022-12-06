@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'shopping.dart';
 import 'calendar.dart';
@@ -51,13 +52,17 @@ class _waterState extends State<water> {
           const SizedBox(height: 15),
           Text('$glass glass'),
              const SizedBox(height: 15),
-            LinearPercentIndicator(
-              width: MediaQuery.of(context).size.width*0.9,
-              lineHeight: 10.0,
-              percent: glass/8,
-              progressColor: Colors.yellow,
-              backgroundColor: Colors.white,
-              barRadius:  const Radius.circular(16),
+            SizedBox(
+                child: LiquidLinearProgressIndicator(
+                  value: glass/8,
+                  valueColor: AlwaysStoppedAnimation(Colors.orange),
+                  backgroundColor: Colors.white,
+                  borderColor: Colors.orangeAccent,
+                  borderWidth: 2.0,
+                  borderRadius: 12.0,
+                  direction: Axis.horizontal,
+                  center: Text('$glass /8'),
+                )
             ),
             const SizedBox(height: 15),
             Wrap(
@@ -70,7 +75,6 @@ class _waterState extends State<water> {
                         glass+=1;
                       }
                     });
-
                   },
                   style: TextButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
@@ -99,59 +103,66 @@ class _waterState extends State<water> {
                 ),
               ],
             ),
-            Row(children:[
-              TextButton(onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:(context) => const Shopping())
-                );
-              },
-                  child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
-              ),
-              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-              TextButton(
-                  onPressed: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder:(context) => const Calendar())
-                    );
-                  },
-                  child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
-              ),
-              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-              TextButton(
-                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                  onPressed: (){},
-                  child: const Icon(Icons.home,color: Colors.orange,size: 40,)
-              ),
-              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-              TextButton(
-                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                  onPressed: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder:(context) => const Workout())
-                    );
-                  },
-                  child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
-              ),
-              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-              TextButton(
-                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                  onPressed: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder:(context) => const water())
-                    );
-                  },
-                  child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
-              )
-            ])
 
   ]
         )
-        ) ],
+
+        ),
+            Expanded(child: Align(
+            alignment: FractionalOffset.bottomCenter,
+    child: Container(color: Colors.white, child: Row(
+    children:[ Row(children:[
+    TextButton(onPressed: (){
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder:(context) => const Shopping())
+    );
+    },
+    child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
+    ),
+    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+    TextButton(
+    onPressed: (){
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder:(context) => const Calendar())
+    );
+    },
+    child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
+    ),
+    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+    TextButton(
+    style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+    onPressed: (){},
+    child: const Icon(Icons.home,color: Colors.orange,size: 40,)
+    ),
+    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+    TextButton(
+    style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+    onPressed: (){
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder:(context) => const Workout())
+    );
+    },
+    child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
+    ),
+    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+    TextButton(
+    style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+    onPressed: (){
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder:(context) => const water())
+    );
+    },
+    child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
+    )
+    ],),],),),),
+            ),],
+
         )
+
     );
   }
 }
