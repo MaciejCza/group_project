@@ -156,7 +156,6 @@ class _ShoppingState extends State<Shopping> {
                 Expanded(child: Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: Container(color: Colors.white, child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children:[ Row(children:[
                       TextButton(onPressed: (){
                         Navigator.push(
