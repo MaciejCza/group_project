@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 void main() => runApp(const water());
-num glass = 0;
+var glass = 0;
+var min = 0;
 class water extends StatefulWidget {
   const water({super.key});
 
@@ -39,27 +40,34 @@ class _waterState extends State<water> {
         Container(
           color: Colors.white,
           child: Column( children: <Widget> [
+            const SizedBox(height: 15),
         const Text('Hydrate yourself'),
+            const SizedBox(height: 15),
             const Icon(Icons.local_drink,
             color: Colors.orange,
-            size: 100),
-          Text(glass.toString() + ' glass'),
-             const SizedBox(height: 10),
+            size: 120),
+          const SizedBox(height: 15),
+          Text('$glass glasses'),
+             const SizedBox(height: 15),
             LinearPercentIndicator(
               width: MediaQuery.of(context).size.width*0.9,
               lineHeight: 10.0,
-              percent: 1/8,
+              percent: glass/8,
               progressColor: Colors.white,
               backgroundColor: Colors.orange,
               barRadius:  const Radius.circular(16),
             ),
+            const SizedBox(height: 15),
             Wrap(
               children: [
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
                     glass-=1;
+                    if (glass < 0) {
+                      glass+=1;
+                    }
                   },
-                  style: ElevatedButton.styleFrom(
+                  style: TextButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
                     shape: const CircleBorder(),
                     backgroundColor: Colors.white,
@@ -67,11 +75,11 @@ class _waterState extends State<water> {
                   ),
                   child: const Text('-'),
                 ),
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
                     glass+=1;
                   },
-                  style: ElevatedButton.styleFrom(
+                  style: TextButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
                     shape: const CircleBorder(),
                     backgroundColor: Colors.white,
