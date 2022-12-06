@@ -4,6 +4,9 @@ import 'app.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
+import 'workout.dart';
+import 'shopping.dart';
+import 'water.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
   @override
@@ -34,7 +37,7 @@ class _CalendarState extends State<Calendar> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(decoration: const BoxDecoration(color: Colors.white),height: MediaQuery.of(context).size.height,
+    return Scaffold(body: Container(height: MediaQuery.of(context).size.height,
         child:
         Column(children:[
           Column(children: [
@@ -51,7 +54,7 @@ class _CalendarState extends State<Calendar> {
           ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.73,decoration: const BoxDecoration(color: Colors.grey),child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.73,child:
           SingleChildScrollView(child:
             Column(children: [
               Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
@@ -86,30 +89,55 @@ class _CalendarState extends State<Calendar> {
             ],
             )
           )),
+        Container(color: Colors.white,child:
         Row(children:[
-          ElevatedButton(onPressed: (){},
-              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 24,)
+          TextButton(onPressed: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder:(context) => const Shopping())
+            );
+          },
+              child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
-            onPressed: (){},
-            child: const Text('nig')
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+          TextButton(
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:(context) => const Calendar())
+              );
+            },
+            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
-              child: const Text('nig')
+              child: const Icon(Icons.home,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-              onPressed: (){},
-              child: const Text('nig')
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:(context) => const Workout())
+                );
+              },
+              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-              onPressed: (){},
-              child: const Text('nig')
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder:(context) => const water())
+                );
+              },
+              child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
           )
-        ],)
+        ]))
         ])
     )
 
