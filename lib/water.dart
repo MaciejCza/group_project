@@ -53,8 +53,8 @@ class _waterState extends State<water> {
               width: MediaQuery.of(context).size.width*0.9,
               lineHeight: 10.0,
               percent: glass/8,
-              progressColor: Colors.white,
-              backgroundColor: Colors.orange,
+              progressColor: Colors.yellow,
+              backgroundColor: Colors.white,
               barRadius:  const Radius.circular(16),
             ),
             const SizedBox(height: 15),
@@ -97,6 +97,7 @@ class _waterState extends State<water> {
                 ),
               ],
             )
+
   ]
         )
         ) ],
