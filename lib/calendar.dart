@@ -99,7 +99,7 @@ class _CalendarState extends State<Calendar> {
           },
               child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
           ),
-          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+          SizedBox(width:MediaQuery.of(context).size.width*0.042 ),
           TextButton(
             onPressed: (){
               Navigator.push(
