@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'main.dart';
+import 'calendar.dart';
+import 'water.dart';
+import 'workout.dart';
 
 const br = Text('', style: TextStyle(fontSize: 10));
 class Shopping extends StatefulWidget {
@@ -48,7 +52,7 @@ class _ShoppingState extends State<Shopping> {
                     child:
                     LiquidLinearProgressIndicator(
                       value: bar,
-                      valueColor: AlwaysStoppedAnimation(Colors.yellow),
+                      valueColor: AlwaysStoppedAnimation(Colors.orange),
                       backgroundColor: Colors.white,
                       borderColor: Colors.orangeAccent,
                       borderWidth: 2.0,
