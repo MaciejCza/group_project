@@ -1,7 +1,7 @@
 import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 import 'calendar.dart';
@@ -69,20 +69,22 @@ class _WorkoutState extends State<Workout> {
                             const Text('Weekly workout progress',
                                 style: TextStyle(fontSize: 20)),
                             br,
-                            ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topRight: Radius.circular(40),
-                                  topLeft: Radius.circular(40),
-                                ),
-                                child: LinearPercentIndicator(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.90,
-                                  lineHeight: 8,
-                                  percent: 1 / 4,
-                                  progressColor: Colors.white,
-                                  backgroundColor: Colors.orange,
-                                  barRadius: const Radius.circular(160),
-                                )),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.016,
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              child: LiquidLinearProgressIndicator(
+                                value: bar,
+                                valueColor:
+                                    const AlwaysStoppedAnimation(Colors.orange),
+                                backgroundColor: Colors.white,
+                                borderColor: Colors.orangeAccent,
+                                borderWidth: 2.0,
+                                borderRadius: 12.0,
+                                direction: Axis.horizontal,
+                                center: Text('$progress out of 4'),
+                              ),
+                            ),
                             brsmol,
                             const Text('1 out of 4 workouts',
                                 style: TextStyle(fontSize: 10))
