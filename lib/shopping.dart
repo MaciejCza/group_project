@@ -47,18 +47,15 @@ class _ShoppingState extends State<Shopping> {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.04,
                   width: MediaQuery.of(context).size.width *0.9,
-                  child: Container(
-                    child:
-                    LiquidLinearProgressIndicator(
-                      value: bar,
-                      valueColor: AlwaysStoppedAnimation(Colors.orange),
-                      backgroundColor: Colors.white,
-                      borderColor: Colors.orangeAccent,
-                      borderWidth: 2.0,
-                      borderRadius: 12.0,
-                      direction: Axis.horizontal,
-                      center: Text('$progress out of 4'),
-                    )
+                  child: LiquidLinearProgressIndicator(
+                    value: bar,
+                    valueColor: const AlwaysStoppedAnimation(Colors.orange),
+                    backgroundColor: Colors.white,
+                    borderColor: Colors.orangeAccent,
+                    borderWidth: 2.0,
+                    borderRadius: 12.0,
+                    direction: Axis.horizontal,
+                    center: Text('$progress out of 4'),
                   ),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
@@ -155,56 +152,60 @@ class _ShoppingState extends State<Shopping> {
                         });
                       },
                     ),
-                  ],),),
-                Expanded(
-                  child: Row(children:[
-                    TextButton(onPressed: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:(context) => const Shopping())
-                      );
-                    },
-                        child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
-                    ),
-                    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                    TextButton(
-                        onPressed: (){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder:(context) => const Calendar())
-                          );
-                        },
-                        child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
-                    ),
-                    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                        onPressed: (){},
-                        child: const Icon(Icons.home,color: Colors.orange,size: 40,)
-                    ),
-                    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                        onPressed: (){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder:(context) => const Workout())
-                          );
-                        },
-                        child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
-                    ),
-                    SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                        onPressed: (){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder:(context) => const water())
-                          );
-                        },
-                        child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
-                    )
-                  ],),)
+                  ],),),br,
+                Expanded(child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Container(color: Colors.white, child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:[ Row(children:[
+                      TextButton(onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder:(context) => const Shopping())
+                        );
+                      },
+                          child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
+                      ),
+                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+                      TextButton(
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder:(context) => const Calendar())
+                            );
+                          },
+                          child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
+                      ),
+                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+                      TextButton(
+                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                          onPressed: (){},
+                          child: const Icon(Icons.home,color: Colors.orange,size: 40,)
+                      ),
+                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+                      TextButton(
+                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder:(context) => const Workout())
+                            );
+                          },
+                          child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
+                      ),
+                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+                      TextButton(
+                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder:(context) => const water())
+                            );
+                          },
+                          child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
+                      )
+                    ],),],),)
+                ))
     ])
     )),);
   }
