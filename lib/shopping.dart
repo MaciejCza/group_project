@@ -50,8 +50,11 @@ class _ShoppingState extends State<Shopping> {
                       width: MediaQuery.of(context).size.width*0.9,
                       lineHeight: 10.0,
                       percent: bar/4,
-                      progressColor: Colors.cyan[300],
-                      backgroundColor: Colors.orange,
+                      progressColor: Colors.yellow,
+                      backgroundColor: Colors.white,
+                      animation: true,
+                      animateFromLastPercent: true,
+                      animationDuration: 1500,
                       barRadius: const Radius.circular(16),
                     ),br, Text('$bar out of 4')
                   ],),),br,
