@@ -90,21 +90,24 @@ class _CalendarState extends State<Calendar> {
           TextButton(onPressed: (){},
               child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
           ),
-
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
             onPressed: (){},
             child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
           ),
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
               child: const Icon(Icons.home,color: Colors.orange,size: 40,)
           ),
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
               child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
           ),
+          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
