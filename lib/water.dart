@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 void main() => runApp(const water());
-var glass = '';
+num glass = 0;
 class water extends StatefulWidget {
   const water({super.key});
 
@@ -43,7 +43,7 @@ class _waterState extends State<water> {
             const Icon(Icons.local_drink,
             color: Colors.orange,
             size: 100),
-          const Text('1 glass'),
+          Text(glass.toString() + ' glass'),
              const SizedBox(height: 10),
             LinearPercentIndicator(
               width: MediaQuery.of(context).size.width*0.9,
@@ -57,27 +57,27 @@ class _waterState extends State<water> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    glass+='-0.125';
+                    glass-=1;
                   },
-                  child: const Text('-'),
                   style: ElevatedButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
                     shape: const CircleBorder(),
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.orange,
                   ),
+                  child: const Text('-'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    glass+='0.125';
+                    glass+=1;
                   },
-                  child: const Text('+'),
                   style: ElevatedButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
                     shape: const CircleBorder(),
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.orange,
                   ),
+                  child: const Text('+'),
                 ),
               ],
             )
