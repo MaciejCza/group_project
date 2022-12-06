@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 const br = Text('', style: TextStyle(fontSize: 10));
 class Shopping extends StatefulWidget {
@@ -12,7 +12,7 @@ bool isChecked = false;
 bool checkedIs = false;
 bool checked = false;
 bool onChecked = false;
-int bar = 0;
+double bar = 0;
 class _ShoppingState extends State<Shopping> {
 
 
@@ -32,31 +32,30 @@ class _ShoppingState extends State<Shopping> {
             child: Column(
               children: <Widget>[
                 Container(decoration: const BoxDecoration(color: Colors.orange,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
-                Column(children: [
-                  Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
-                  const Image(image: AssetImage("assets/logo.png"),)
-                  ),
-                  Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
-                  const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
-                  )
-                ])),br,
+                  Column(children: [
+                    Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
+                      const Image(image: AssetImage("assets/logo.png"),)
+                    ),
+                    Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
+                      const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
+                    )
+                  ])),br,
                 Container(
                   height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width *0.9,
                   color: Colors.white,
                   child: Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    LinearPercentIndicator(
-                      width: MediaQuery.of(context).size.width*0.9,
-                      lineHeight: 10.0,
-                      percent: bar/4,
-                      progressColor: Colors.yellow,
+                    LiquidLinearProgressIndicator(
+                      value: bar,
+                      valueColor: AlwaysStoppedAnimation(Colors.yellow),
                       backgroundColor: Colors.white,
-                      animation: true,
-                      animateFromLastPercent: true,
-                      animationDuration: 500,
-                      barRadius: const Radius.circular(16),
-                    ),br, Text('$bar out of 4')
+                      borderColor: Colors.deepOrangeAccent,
+                      borderWidth: 4.0,
+                      borderRadius: 12.0,
+                      direction: Axis.horizontal,
+                      center: Text('$bar out of 4'),
+                    )
                   ],),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
