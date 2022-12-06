@@ -88,8 +88,10 @@ class _CalendarState extends State<Calendar> {
             ],
             )
           )),
-        Container(color: Colors.white,child:
-        Row(children:[
+          Expanded(child: Align(
+          alignment: FractionalOffset.bottomCenter,
+            child: Container(color: Colors.white,child:
+          Row(children:[
           TextButton(onPressed: (){
             Navigator.push(
                 context,
@@ -106,7 +108,7 @@ class _CalendarState extends State<Calendar> {
                   MaterialPageRoute(builder:(context) => const Calendar())
               );
             },
-            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
+            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40)
           ),
           SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
@@ -137,7 +139,7 @@ class _CalendarState extends State<Calendar> {
               child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
           )
         ]))
-        ])
+        ))])
     )
 
     );
