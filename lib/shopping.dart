@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'main.dart';
 import 'calendar.dart';
 import 'water.dart';
 import 'workout.dart';
