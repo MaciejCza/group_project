@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-
+import 'shopping.dart';
+import 'calendar.dart';
+import 'workout.dart';
 void main() => runApp(const water());
 var glass = 0;
 var min = 0;
@@ -53,8 +55,8 @@ class _waterState extends State<water> {
               width: MediaQuery.of(context).size.width*0.9,
               lineHeight: 10.0,
               percent: glass/8,
-              progressColor: Colors.white,
-              backgroundColor: Colors.orange,
+              progressColor: Colors.yellow,
+              backgroundColor: Colors.white,
               barRadius:  const Radius.circular(16),
             ),
             const SizedBox(height: 15),
@@ -96,7 +98,56 @@ class _waterState extends State<water> {
                   child: const Text('+'),
                 ),
               ],
-            )
+            ),
+            Row(children:[
+              TextButton(onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder:(context) => const Shopping())
+                );
+              },
+                  child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
+              ),
+              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+              TextButton(
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => const Calendar())
+                    );
+                  },
+                  child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
+              ),
+              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+              TextButton(
+                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                  onPressed: (){},
+                  child: const Icon(Icons.home,color: Colors.orange,size: 40,)
+              ),
+              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+              TextButton(
+                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => const Workout())
+                    );
+                  },
+                  child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
+              ),
+              SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
+              TextButton(
+                  style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => const water())
+                    );
+                  },
+                  child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
+              )
+            ])
+
   ]
         )
         ) ],
