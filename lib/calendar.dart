@@ -1,3 +1,4 @@
+
 import 'main.dart';
 import 'app.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +14,19 @@ class _CalendarState extends State<Calendar> {
   void _onDaySelected(DateTime day,DateTime focusedDay){
     setState(() {
       today = day;
-    });
-  }
-  late Map<DateTime, List<dynamic>> _events;
-  late List<dynamic> _selectedEvents;
+    });}
+
+    CalendarFormat _calendarFormat = CalendarFormat.month;
+    RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
+    DateTime _focusedDay = DateTime.now();
+    DateTime? _selectedDay;
+    DateTime? _rangeStart;
+    DateTime? _rangeEnd;
   @override
   void initState(){
     super.initState();
-    _events = {};
-    _selectedEvents = [];
+    _selectedDay = _focusedDay;
+
   }
   @override
   Widget build(BuildContext context) {
@@ -62,7 +67,7 @@ class _CalendarState extends State<Calendar> {
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
                   availableGestures: AvailableGestures.all,
                   selectedDayPredicate: (day) => isSameDay(day, today),
-                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),todayDecoration: BoxDecoration(color: Colors.yellow,shape: BoxShape.circle)),
+                  calendarStyle: const CalendarStyle(weekendTextStyle: TextStyle(color: Colors.orange),selectedDecoration: BoxDecoration(color: Colors.orange,shape: BoxShape.circle),todayDecoration: BoxDecoration(color: Colors.grey,shape: BoxShape.circle)),
                   headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     leftChevronVisible: false,
