@@ -87,27 +87,28 @@ class _CalendarState extends State<Calendar> {
             )
           )),
         Row(children:[
-          ElevatedButton(onPressed: (){},
-              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 24,)
+          TextButton(onPressed: (){},
+              child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+
+          TextButton(
             onPressed: (){},
-            child: const Text('nig')
+            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
-              child: const Text('nig')
+              child: const Icon(Icons.home,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
-              child: const Text('nig')
+              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
           ),
-          ElevatedButton(
+          TextButton(
               style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
               onPressed: (){},
-              child: const Text('nig')
+              child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
           )
         ],)
         ])
