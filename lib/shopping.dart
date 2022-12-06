@@ -13,6 +13,7 @@ bool checkedIs = false;
 bool checked = false;
 bool onChecked = false;
 double bar = 0;
+int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
 
@@ -41,22 +42,21 @@ class _ShoppingState extends State<Shopping> {
                     )
                   ])),br,
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.08,
+                  height: MediaQuery.of(context).size.height * 0.04,
                   width: MediaQuery.of(context).size.width *0.9,
-                  color: Colors.white,
-                  child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  child: Container(
+                    child:
                     LiquidLinearProgressIndicator(
                       value: bar,
                       valueColor: AlwaysStoppedAnimation(Colors.yellow),
                       backgroundColor: Colors.white,
-                      borderColor: Colors.deepOrangeAccent,
-                      borderWidth: 4.0,
+                      borderColor: Colors.orangeAccent,
+                      borderWidth: 2.0,
                       borderRadius: 12.0,
                       direction: Axis.horizontal,
-                      center: Text('$bar out of 4'),
+                      center: Text('$progress out of 4'),
                     )
-                  ],),),br,
+                  ),),br,
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
                   width: MediaQuery.of(context).size.width *0.9,
@@ -69,10 +69,12 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(checkedIs == false){
-                            bar = bar + 1;
+                            bar = bar + 0.25;
+                            progress = progress +1;
                           }
                           else {
-                            bar = bar - 1;
+                            bar = bar - 0.25;
+                            progress = progress - 1;
                           }
                           checkedIs = !checkedIs;
                         });
@@ -91,10 +93,12 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(isChecked == false){
-                            bar = bar + 1;
+                            bar = bar + 0.25;
+                            progress = progress + 1;
                           }
                           else {
-                            bar = bar - 1;
+                            bar = bar - 0.25;
+                            progress = progress - 1;
                           }
                           isChecked = !isChecked;
                         });
@@ -113,10 +117,12 @@ class _ShoppingState extends State<Shopping> {
                       onChanged: (value) {
                         setState(() {
                           if(checked == false){
-                            bar = bar + 1;
+                            bar = bar + 0.25;
+                            progress = progress + 1;
                           }
                           else {
-                            bar = bar - 1;
+                            bar = bar - 0.25;
+                            progress = progress - 1;
                           }
                           checked = !checked;
                         });
@@ -134,10 +140,12 @@ class _ShoppingState extends State<Shopping> {
                       value: onChecked,
                       onChanged: (value) {
                         if(onChecked == false){
-                          bar = bar + 1;
+                          bar = bar + 0.25;
+                          progress = progress + 1;
                         }
                         else {
-                          bar = bar - 1;
+                          bar = bar - 0.25;
+                          progress = progress - 1;
                         }
                         setState(() {
                           onChecked = !onChecked;

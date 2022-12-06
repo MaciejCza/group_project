@@ -47,7 +47,7 @@ class _waterState extends State<water> {
             color: Colors.orange,
             size: 120),
           const SizedBox(height: 15),
-          Text('$glass glasses'),
+          Text('$glass glass'),
              const SizedBox(height: 15),
             LinearPercentIndicator(
               width: MediaQuery.of(context).size.width*0.9,
@@ -62,10 +62,13 @@ class _waterState extends State<water> {
               children: [
                 TextButton(
                   onPressed: () {
-                    glass-=1;
-                    if (glass < 0) {
-                      glass+=1;
-                    }
+                    setState(() {
+                      glass-=1;
+                      if (glass < 0) {
+                        glass+=1;
+                      }
+                    });
+
                   },
                   style: TextButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
@@ -77,7 +80,12 @@ class _waterState extends State<water> {
                 ),
                 TextButton(
                   onPressed: () {
-                    glass+=1;
+                    setState(() {
+                      glass+=1;
+                      if (glass > 8) {
+                       glass-=1;
+                      }
+                    });
                   },
                   style: TextButton.styleFrom(
                     side: const BorderSide(color: Colors.orange),
