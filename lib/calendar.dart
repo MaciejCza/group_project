@@ -108,7 +108,7 @@ class _CalendarState extends State<Calendar> {
                   MaterialPageRoute(builder:(context) => const Calendar())
               );
             },
-            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
+            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40)
           ),
           SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
           TextButton(
