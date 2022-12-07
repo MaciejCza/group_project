@@ -68,8 +68,11 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('Weekly workout progress',
-                                style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                              child: const Text('Weekly workout progress',
+                                  style: TextStyle(fontSize: 20)),
+                            ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
@@ -89,10 +92,14 @@ class _WorkoutState extends State<Workout> {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.016,
                             ),
-                            Text('$workstr out of 4 workouts',
-                                style: const TextStyle(fontSize: 10))
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.01,
+                                child: Text('$workstr out of 4 workouts',
+                                    style: const TextStyle(fontSize: 10)))
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
