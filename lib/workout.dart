@@ -1,6 +1,6 @@
 import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -96,8 +96,8 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            Row(children: [
-                              const Text('Today workout',
+                            Row(children: const [
+                              Text('Today workout',
                                   style: TextStyle(fontSize: 20)),
                             ]),
                             // alignment: Alignment.topRight,
@@ -123,8 +123,15 @@ class _WorkoutState extends State<Workout> {
                                       setState(() {
                                         if (checkedValue == false) {
                                           checkedValue = true;
+                                          workouts = workouts + 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         } else {
                                           checkedValue = false;
+
+                                          workouts = workouts - 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         }
                                       });
                                     },
@@ -164,8 +171,15 @@ class _WorkoutState extends State<Workout> {
                                       setState(() {
                                         if (checkedValue1 == false) {
                                           checkedValue1 = true;
+                                          workouts = workouts + 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         } else {
                                           checkedValue1 = false;
+
+                                          workouts = workouts - 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         }
                                       });
                                     },
@@ -207,8 +221,15 @@ class _WorkoutState extends State<Workout> {
                                           setState(() {
                                             if (checkedValue2 == false) {
                                               checkedValue2 = true;
+                                              workouts = workouts + 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             } else {
                                               checkedValue2 = false;
+
+                                              workouts = workouts - 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             }
                                           });
                                         },
@@ -250,18 +271,16 @@ class _WorkoutState extends State<Workout> {
                                           setState(() {
                                             if (checkedValue3 == false) {
                                               checkedValue3 = true;
-                                              setState(() {
-                                                workouts = workouts + 1;
-                                                workoutst = workouts.toInt();
-                                                workstr = workoutst.toString();
-                                              });
+
+                                              workouts = workouts + 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             } else {
                                               checkedValue3 = false;
-                                              setState(() {
-                                                workouts = workouts - 1;
-                                                workoutst = workouts.toInt();
-                                                workstr = workoutst.toString();
-                                              });
+
+                                              workouts = workouts - 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             }
                                           });
                                         },
