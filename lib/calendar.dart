@@ -20,7 +20,6 @@ class _CalendarState extends State<Calendar> {
     });}
   late Map<DateTime,List<Event>> selectedEvents;
   TextEditingController _eventController = TextEditingController();
-
   @override
   void initState(){
     selectedEvents = {};
@@ -87,7 +86,14 @@ class _CalendarState extends State<Calendar> {
                   ),
                 )
             ),
-            ..._getEventsFromDay(today).map((Event event) => ListTile(title:Text(event.title ,style: TextStyle(fontSize: 20)) ))
+            ..._getEventsFromDay(today).map((Event event) => Row(children:[
+                Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
+                  title: Text(event.title),
+                  tileColor:  Colors.orange
+                )),
+                Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
+                tileColor: Colors.white,
+                title:Text(event.title ,style: TextStyle(fontSize: 20)) ))]))
           ],
           )
           )),
@@ -99,6 +105,7 @@ class _CalendarState extends State<Calendar> {
           title: Text('add Event'),
           content: TextFormField(controller: _eventController),
           actions: [
+            Row(children:[
             TextButton(
               child:Text('ok'),
               onPressed: () {
@@ -125,7 +132,7 @@ class _CalendarState extends State<Calendar> {
               child:Text('cancel'),
               onPressed: () => Navigator.pop(context),
             )
-          ],)), label: const Text('add event'),icon: const Icon(Icons.add)),
+            ])],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
   }
 }
