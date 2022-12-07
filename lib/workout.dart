@@ -13,8 +13,9 @@ bool checkedValue = false;
 bool checkedValue1 = false;
 bool checkedValue2 = false;
 bool checkedValue3 = false;
-int workouts = 0;
-String workstr = workouts.toString();
+double workouts = 0;
+int workoutst = workouts.toInt();
+String workstr = workoutst.toString();
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class _WorkoutState extends State<Workout> {
                                   MediaQuery.of(context).size.height * 0.016,
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: LiquidLinearProgressIndicator(
-                                value: bar,
+                                value: workouts / 4,
                                 valueColor:
                                     const AlwaysStoppedAnimation(Colors.orange),
                                 backgroundColor: Colors.white,
@@ -249,8 +250,18 @@ class _WorkoutState extends State<Workout> {
                                           setState(() {
                                             if (checkedValue3 == false) {
                                               checkedValue3 = true;
+                                              setState(() {
+                                                workouts = workouts + 1;
+                                                workoutst = workouts.toInt();
+                                                workstr = workoutst.toString();
+                                              });
                                             } else {
                                               checkedValue3 = false;
+                                              setState(() {
+                                                workouts = workouts - 1;
+                                                workoutst = workouts.toInt();
+                                                workstr = workoutst.toString();
+                                              });
                                             }
                                           });
                                         },
