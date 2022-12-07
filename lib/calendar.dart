@@ -29,6 +29,11 @@ class _CalendarState extends State<Calendar> {
     return selectedEvents[date]??[];
   }
   @override
+  void dispose(){
+    _eventController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
@@ -39,7 +44,15 @@ class _CalendarState extends State<Calendar> {
               actions: [
                 TextButton(
                   child:Text('ok'),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    if(_eventController.text.isEmpty){
+                      return;
+                    }else{
+                      if(selectedEvents[DateTime.now()] != null){
+                        selectedEvents[DateTime.now()]?.add(Event(title: _eventController.text));
+                      }
+                    }
+                  },
                 ),
                 TextButton(
                   child:Text('cancel'),
