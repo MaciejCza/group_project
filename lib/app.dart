@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'calendar.dart';
 import 'shopping.dart';
+import 'home.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Calendar(),
+      home: const MainPage(),
     );
   }
 }
