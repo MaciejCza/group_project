@@ -30,7 +30,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(context: context, builder:(context)=>AlertDialog(title: Text('add Event'),content: Text('Enter Event Title'),actions: [TextButton(child:Text('ok'),onPressed: () => Navigator.pop(context),)],)), label: const Text('add event'),icon: const Icon(Icons.add)),
         body:
     Container(height: MediaQuery.of(context).size.height,
         child:
