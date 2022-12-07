@@ -295,7 +295,7 @@ class _WorkoutState extends State<Workout> {
                           ]))
                     ]),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.16),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
               Container(
                   color: Colors.white,
                   height: MediaQuery.of(context).size.height * 0.07,
