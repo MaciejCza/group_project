@@ -18,6 +18,7 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
+  TextEditingController _eventController = TextEditingController();
   late Map<DateTime,List<Event>> selectedEvents;
   @override
   void initState(){
@@ -30,7 +31,21 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(context: context, builder:(context)=>AlertDialog(title: Text('add Event'),content: Text('Enter Event Title'),actions: [TextButton(child:Text('ok'),onPressed: () => Navigator.pop(context),)],)), label: const Text('add event'),icon: const Icon(Icons.add)),
+        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
+            context: context,
+            builder:(context)=>AlertDialog(
+              title: Text('add Event'),
+              content: TextFormField(controller: _eventController),
+              actions: [
+                TextButton(
+                  child:Text('ok'),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                TextButton(
+                  child:Text('cancel'),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],)), label: const Text('add event'),icon: const Icon(Icons.add)),
         body:
     Container(height: MediaQuery.of(context).size.height,
         child:
