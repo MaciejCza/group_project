@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'workout.dart';
 import 'shopping.dart';
 import 'water.dart';
+import 'events.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
   @override
@@ -17,26 +18,36 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
-  final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-    foregroundColor: Colors.black,
-    backgroundColor: Colors.white,
-    minimumSize: Size(50,50),
-  );
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-  DateTime? _rangeStart;
-  DateTime? _rangeEnd;
+  TextEditingController _eventController = TextEditingController();
+  late Map<DateTime,List<Event>> selectedEvents;
   @override
   void initState(){
+    selectedEvents = {};
     super.initState();
-    _selectedDay = _focusedDay;
-
+  }
+  List<Event> _getEventsFromDay(DateTime date){
+    return selectedEvents[date]??[];
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(height: MediaQuery.of(context).size.height,
+    return Scaffold(
+        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
+            context: context,
+            builder:(context)=>AlertDialog(
+              title: Text('add Event'),
+              content: TextFormField(controller: _eventController),
+              actions: [
+                TextButton(
+                  child:Text('ok'),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                TextButton(
+                  child:Text('cancel'),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],)), label: const Text('add event'),icon: const Icon(Icons.add)),
+        body:
+    Container(height: MediaQuery.of(context).size.height,
         child:
         Column(children:[
           Column(children: [
@@ -68,6 +79,7 @@ class _CalendarState extends State<Calendar> {
                   headerVisible: false,
                   daysOfWeekHeight: 25,
                   rowHeight: 40,
+                  eventLoader: _getEventsFromDay,
                   onDaySelected: _onDaySelected,
                   startingDayOfWeek: StartingDayOfWeek.monday,
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
