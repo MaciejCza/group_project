@@ -7,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'calendar.dart';
 
 TextEditingController _eventController = TextEditingController();
-const br = SizedBox();
-const brsmol = SizedBox();
-const brsmoll = SizedBox();
+
 bool checkedValue = false;
 bool checkedValue1 = false;
 bool checkedValue2 = false;
@@ -72,7 +70,9 @@ class _WorkoutState extends State<Workout> {
                           child: Column(children: [
                             const Text('Weekly workout progress',
                                 style: TextStyle(fontSize: 20)),
-                            br,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
                             SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.016,
@@ -88,7 +88,9 @@ class _WorkoutState extends State<Workout> {
                                 direction: Axis.horizontal,
                               ),
                             ),
-                            brsmol,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
                             Text('$workstr out of 4 workouts',
                                 style: const TextStyle(fontSize: 10))
                           ])),
