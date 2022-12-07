@@ -161,58 +161,7 @@ class _ShoppingState extends State<Shopping> {
                 //     icon: Icon(Icons.add),
                 //   ),
                 // ),),
-                Expanded(child: Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: Container(color: Colors.white, child: Row(
-                    children:[ Row(children:[
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder:(context) => const Shopping())
-                        );
-                      },
-                          child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
-                      ),
-                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                      TextButton(
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder:(context) => const Calendar())
-                            );
-                          },
-                          child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40,)
-                      ),
-                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                      TextButton(
-                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                          onPressed: (){},
-                          child: const Icon(Icons.home,color: Colors.orange,size: 40,)
-                      ),
-                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                      TextButton(
-                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder:(context) => const Workout())
-                            );
-                          },
-                          child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
-                      ),
-                      SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-                      TextButton(
-                          style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-                          onPressed: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder:(context) => const water())
-                            );
-                          },
-                          child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
-                      )
-                    ],),],),)
-                ))
+
     ])
     )),);
   }
