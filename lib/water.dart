@@ -5,8 +5,7 @@ import 'shopping.dart';
 import 'calendar.dart';
 import 'workout.dart';
 void main() => runApp(const water());
-var glass = 0;
-var min = 0;
+num glass = 0;
 class water extends StatefulWidget {
   const water({super.key});
 
@@ -52,16 +51,17 @@ class _waterState extends State<water> {
           const SizedBox(height: 15),
           Text('$glass glass'),
              const SizedBox(height: 15),
-            SizedBox(
+            Container(
+              height: MediaQuery.of(context).size.height*0.03,
                 child: LiquidLinearProgressIndicator(
                   value: glass/8,
-                  valueColor: AlwaysStoppedAnimation(Colors.orange),
+                  valueColor: AlwaysStoppedAnimation(Colors.yellow),
                   backgroundColor: Colors.white,
                   borderColor: Colors.orangeAccent,
                   borderWidth: 2.0,
                   borderRadius: 12.0,
                   direction: Axis.horizontal,
-                  center: Text('$glass /8'),
+                  center: Text(''),
                 )
             ),
             const SizedBox(height: 15),
