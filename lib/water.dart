@@ -52,7 +52,8 @@ class _waterState extends State<water> {
           const SizedBox(height: 15),
           Text('$glass glass'),
              const SizedBox(height: 15),
-            SizedBox(
+            Container(
+              height: MediaQuery.of(context).size.height*0.03,
                 child: LiquidLinearProgressIndicator(
                   value: glass/8,
                   valueColor: AlwaysStoppedAnimation(Colors.orange),
