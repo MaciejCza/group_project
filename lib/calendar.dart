@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'workout.dart';
 import 'shopping.dart';
 import 'water.dart';
+import 'events.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
   @override
@@ -17,26 +18,26 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
-  final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-    foregroundColor: Colors.black,
-    backgroundColor: Colors.white,
-    minimumSize: Size(50,50),
-  );
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-  DateTime? _rangeStart;
-  DateTime? _rangeEnd;
+  late Map<DateTime,List<Event>> selectedEvents;
+  TextEditingController _eventController = TextEditingController();
   @override
   void initState(){
+    selectedEvents = {};
     super.initState();
-    _selectedDay = _focusedDay;
-
+  }
+  List<Event> _getEventsFromDay(DateTime date){
+    return selectedEvents[date]??[];
+  }
+  @override
+  void dispose(){
+    _eventController.dispose();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(height: MediaQuery.of(context).size.height,
+    return Scaffold(
+        body:
+    Container(height: MediaQuery.of(context).size.height,
         child:
         Column(children:[
           Column(children: [
@@ -53,7 +54,7 @@ class _CalendarState extends State<Calendar> {
             ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.735,child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.45,child:
           SingleChildScrollView(child:
           Column(children: [
             Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
@@ -68,6 +69,7 @@ class _CalendarState extends State<Calendar> {
                   headerVisible: false,
                   daysOfWeekHeight: 25,
                   rowHeight: 40,
+                  eventLoader: _getEventsFromDay,
                   onDaySelected: _onDaySelected,
                   startingDayOfWeek: StartingDayOfWeek.monday,
                   daysOfWeekStyle: const DaysOfWeekStyle(weekendStyle: TextStyle(color: Colors.red)),
@@ -84,12 +86,53 @@ class _CalendarState extends State<Calendar> {
                   ),
                 )
             ),
+            ..._getEventsFromDay(today).map((Event event) => Row(children:[
+                Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
+                  title: Text(event.title),
+                  tileColor:  Colors.orange
+                )),
+                Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
+                tileColor: Colors.white,
+                title:Text(event.title ,style: TextStyle(fontSize: 20)) ))]))
           ],
           )
           )),
           ])
-    )
+    ),
+        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
+        context: context,
+        builder:(context)=>AlertDialog(
+          title: Text('add Event'),
+          content: TextFormField(controller: _eventController),
+          actions: [
+            Row(children:[
+            TextButton(
+              child:Text('ok'),
+              onPressed: () {
+                if(_eventController.text.isEmpty){
 
+                }else{
+                  if(selectedEvents[today] != null){
+                    selectedEvents[today]?.add(Event(title: _eventController.text));
+                  }else {
+                    selectedEvents[today] = [
+                      Event(title: _eventController.text)
+                    ];
+                  }
+                  Navigator.pop(context);
+                  _eventController.clear();
+                  setState(() {
+
+                  });
+                }
+                return;
+              },
+            ),
+            TextButton(
+              child:Text('cancel'),
+              onPressed: () => Navigator.pop(context),
+            )
+            ])],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
   }
 }

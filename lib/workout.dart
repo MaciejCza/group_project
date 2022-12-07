@@ -1,6 +1,6 @@
 import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +13,9 @@ bool checkedValue = false;
 bool checkedValue1 = false;
 bool checkedValue2 = false;
 bool checkedValue3 = false;
+double workouts = 0;
+int workoutst = workouts.toInt();
+String workstr = workoutst.toString();
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -74,7 +77,7 @@ class _WorkoutState extends State<Workout> {
                                   MediaQuery.of(context).size.height * 0.016,
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: LiquidLinearProgressIndicator(
-                                value: bar,
+                                value: workouts / 4,
                                 valueColor:
                                     const AlwaysStoppedAnimation(Colors.orange),
                                 backgroundColor: Colors.white,
@@ -82,20 +85,19 @@ class _WorkoutState extends State<Workout> {
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 direction: Axis.horizontal,
-                                center: Text('$progress out of 4'),
                               ),
                             ),
                             brsmol,
-                            const Text('1 out of 4 workouts',
-                                style: TextStyle(fontSize: 10))
+                            Text('$workstr out of 4 workouts',
+                                style: const TextStyle(fontSize: 10))
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            Row(children: [
-                              const Text('Today workout',
+                            Row(children: const [
+                              Text('Today workout',
                                   style: TextStyle(fontSize: 20)),
                             ]),
                             // alignment: Alignment.topRight,
@@ -121,8 +123,15 @@ class _WorkoutState extends State<Workout> {
                                       setState(() {
                                         if (checkedValue == false) {
                                           checkedValue = true;
+                                          workouts = workouts + 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         } else {
                                           checkedValue = false;
+
+                                          workouts = workouts - 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         }
                                       });
                                     },
@@ -162,8 +171,15 @@ class _WorkoutState extends State<Workout> {
                                       setState(() {
                                         if (checkedValue1 == false) {
                                           checkedValue1 = true;
+                                          workouts = workouts + 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         } else {
                                           checkedValue1 = false;
+
+                                          workouts = workouts - 1;
+                                          workoutst = workouts.toInt();
+                                          workstr = workoutst.toString();
                                         }
                                       });
                                     },
@@ -205,8 +221,15 @@ class _WorkoutState extends State<Workout> {
                                           setState(() {
                                             if (checkedValue2 == false) {
                                               checkedValue2 = true;
+                                              workouts = workouts + 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             } else {
                                               checkedValue2 = false;
+
+                                              workouts = workouts - 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             }
                                           });
                                         },
@@ -248,8 +271,16 @@ class _WorkoutState extends State<Workout> {
                                           setState(() {
                                             if (checkedValue3 == false) {
                                               checkedValue3 = true;
+
+                                              workouts = workouts + 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             } else {
                                               checkedValue3 = false;
+
+                                              workouts = workouts - 1;
+                                              workoutst = workouts.toInt();
+                                              workstr = workoutst.toString();
                                             }
                                           });
                                         },
