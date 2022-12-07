@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'calendar.dart';
 
 TextEditingController _eventController = TextEditingController();
-const br = Text('', style: TextStyle(fontSize: 20));
-const brsmol = Text('', style: TextStyle(fontSize: 10));
-const brsmoll = Text('', style: TextStyle(fontSize: 5));
+const br = SizedBox();
+const brsmol = SizedBox();
+const brsmoll = SizedBox();
 bool checkedValue = false;
 bool checkedValue1 = false;
 bool checkedValue2 = false;
