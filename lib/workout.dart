@@ -13,6 +13,8 @@ bool checkedValue = false;
 bool checkedValue1 = false;
 bool checkedValue2 = false;
 bool checkedValue3 = false;
+int workouts = 0;
+String workstr = workouts.toString();
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -82,12 +84,11 @@ class _WorkoutState extends State<Workout> {
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 direction: Axis.horizontal,
-                                center: Text('$progress out of 4'),
                               ),
                             ),
                             brsmol,
-                            const Text('1 out of 4 workouts',
-                                style: TextStyle(fontSize: 10))
+                            Text('$workstr out of 4 workouts',
+                                style: const TextStyle(fontSize: 10))
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
