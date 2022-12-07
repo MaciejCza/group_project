@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'calendar.dart';
-import 'water.dart';
-import 'workout.dart';
 
 const br = Text('', style: TextStyle(fontSize: 10));
 class Shopping extends StatefulWidget {
