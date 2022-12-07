@@ -18,8 +18,9 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
-  TextEditingController _eventController = TextEditingController();
   late Map<DateTime,List<Event>> selectedEvents;
+  TextEditingController _eventController = TextEditingController();
+
   @override
   void initState(){
     selectedEvents = {};
@@ -36,29 +37,6 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
-            context: context,
-            builder:(context)=>AlertDialog(
-              title: Text('add Event'),
-              content: TextFormField(controller: _eventController),
-              actions: [
-                TextButton(
-                  child:Text('ok'),
-                  onPressed: () {
-                    if(_eventController.text.isEmpty){
-                      return;
-                    }else{
-                      if(selectedEvents[DateTime.now()] != null){
-                        selectedEvents[DateTime.now()]?.add(Event(title: _eventController.text));
-                      }
-                    }
-                  },
-                ),
-                TextButton(
-                  child:Text('cancel'),
-                  onPressed: () => Navigator.pop(context),
-                )
-              ],)), label: const Text('add event'),icon: const Icon(Icons.add)),
         body:
     Container(height: MediaQuery.of(context).size.height,
         child:
@@ -77,7 +55,7 @@ class _CalendarState extends State<Calendar> {
             ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.735,child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.45,child:
           SingleChildScrollView(child:
           Column(children: [
             Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
@@ -109,12 +87,45 @@ class _CalendarState extends State<Calendar> {
                   ),
                 )
             ),
+            ..._getEventsFromDay(today).map((Event event) => ListTile(title:Text(event.title ,style: TextStyle(fontSize: 20)) ))
           ],
           )
           )),
           ])
-    )
+    ),
+        floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
+        context: context,
+        builder:(context)=>AlertDialog(
+          title: Text('add Event'),
+          content: TextFormField(controller: _eventController),
+          actions: [
+            TextButton(
+              child:Text('ok'),
+              onPressed: () {
+                if(_eventController.text.isEmpty){
 
+                }else{
+                  if(selectedEvents[today] != null){
+                    selectedEvents[today]?.add(Event(title: _eventController.text));
+                  }else {
+                    selectedEvents[today] = [
+                      Event(title: _eventController.text)
+                    ];
+                  }
+                  Navigator.pop(context);
+                  _eventController.clear();
+                  setState(() {
+
+                  });
+                }
+                return;
+              },
+            ),
+            TextButton(
+              child:Text('cancel'),
+              onPressed: () => Navigator.pop(context),
+            )
+          ],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
   }
 }
