@@ -1,4 +1,3 @@
-
 import 'main.dart';
 import 'app.dart';
 import 'package:flutter/material.dart';
@@ -18,17 +17,17 @@ class _CalendarState extends State<Calendar> {
     setState(() {
       today = day;
     });}
-    final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.black,
-      backgroundColor: Colors.white,
-      minimumSize: Size(50,50),
-    );
-    CalendarFormat _calendarFormat = CalendarFormat.month;
-    RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
-    DateTime _focusedDay = DateTime.now();
-    DateTime? _selectedDay;
-    DateTime? _rangeStart;
-    DateTime? _rangeEnd;
+  final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
+    foregroundColor: Colors.black,
+    backgroundColor: Colors.white,
+    minimumSize: Size(50,50),
+  );
+  CalendarFormat _calendarFormat = CalendarFormat.month;
+  RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
+  DateTime? _rangeStart;
+  DateTime? _rangeEnd;
   @override
   void initState(){
     super.initState();
@@ -41,26 +40,26 @@ class _CalendarState extends State<Calendar> {
         child:
         Column(children:[
           Column(children: [
-          Column(children: [
-          Container(decoration: const BoxDecoration(color: Colors.orange,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
+            Column(children: [
+              Container(decoration: const BoxDecoration(color: Colors.orange,boxShadow:[BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 7,offset: Offset(0,3))]),width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height*0.17,child:
               Column(children: [
-              Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
+                Container(margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),height: MediaQuery.of(context).size.height*0.07,child:
                 const Image(image: AssetImage("assets/logo.png"),)
-              ),
-              Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
+                ),
+                Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
                 const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
-              )
+                )
               ]))
-          ]),
+            ]),
             const SizedBox(height: 20)
           ]),
           Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.735,child:
           SingleChildScrollView(child:
-            Column(children: [
-              Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
-                Text(datowski())
-              ),
-              Card(
+          Column(children: [
+            Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
+            Text(datowski())
+            ),
+            Card(
                 child: TableCalendar(
                   firstDay: DateTime.utc(0,10,16),
                   lastDay: DateTime.utc(999999999999999999,3,14),
@@ -84,62 +83,11 @@ class _CalendarState extends State<Calendar> {
                     decoration:BoxDecoration(color: Colors.yellow,borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))),
                   ),
                 )
-              ),
-            ],
-            )
-          )),
-          Expanded(child: Align(
-          alignment: FractionalOffset.bottomCenter,
-            child: Container(color: Colors.white,child:
-          Row(children:[
-          TextButton(onPressed: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder:(context) => const Shopping())
-            );
-          },
-              child: const Icon(Icons.checklist_outlined,color: Colors.orange,size: 40,)
-          ),
-          SizedBox(width:MediaQuery.of(context).size.width*0.042 ),
-          TextButton(
-            onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder:(context) => const Calendar())
-              );
-            },
-            child: const Icon(Icons.calendar_month,color: Colors.orange,size: 40)
-          ),
-          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-          TextButton(
-              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-              onPressed: (){},
-              child: const Icon(Icons.home,color: Colors.orange,size: 40,)
-          ),
-          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-          TextButton(
-              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-              onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder:(context) => const Workout())
-                );
-              },
-              child: const Icon(Icons.fitness_center,color: Colors.orange,size: 40,)
-          ),
-          SizedBox(width:MediaQuery.of(context).size.width*0.045 ),
-          TextButton(
-              style: ElevatedButton.styleFrom(foregroundColor:Colors.black),
-              onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:(context) => const water())
-                );
-              },
-              child: const Icon(Icons.water_drop,color: Colors.orange,size: 40,)
+            ),
+          ],
           )
-        ]))
-        ))])
+          )),
+          ])
     )
 
     );
