@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'calendar.dart';
 
+TextEditingController _eventController = TextEditingController();
 const br = Text('', style: TextStyle(fontSize: 20));
 const brsmol = Text('', style: TextStyle(fontSize: 10));
 const brsmoll = Text('', style: TextStyle(fontSize: 5));
@@ -363,6 +364,22 @@ class _WorkoutState extends State<Workout> {
                           size: 40,
                         ))
                   ]))
-            ])));
+            ])),
+        floatingActionButton: FloatingActionButton.extended(
+            onPressed: () => showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: Text('add Event'),
+                      actions: [
+                        Row(children: [
+                          TextButton(
+                            child: Text('ok'),
+                            onPressed: () {},
+                          ),
+                        ])
+                      ],
+                    )),
+            label: const Text('add event'),
+            icon: const Icon(Icons.add)));
   }
 }
