@@ -68,8 +68,11 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            const Text('Weekly workout progress',
-                                style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                              child: const Text('Weekly workout progress',
+                                  style: TextStyle(fontSize: 20)),
+                            ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
@@ -89,10 +92,14 @@ class _WorkoutState extends State<Workout> {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.012,
                             ),
-                            Text('$workstr out of 4 workouts',
-                                style: const TextStyle(fontSize: 10))
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.024,
+                                child: Text('$workstr out of 4 workouts',
+                                    style: const TextStyle(fontSize: 10)))
                           ])),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
@@ -295,77 +302,7 @@ class _WorkoutState extends State<Workout> {
                           ]))
                     ]),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.16),
-              Container(
-                  color: Colors.white,
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  child: Row(children: [
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Shopping()));
-                        },
-                        child: const Icon(
-                          Icons.checklist_outlined,
-                          color: Colors.orange,
-                          size: 40,
-                        )),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Calendar()));
-                        },
-                        child: const Icon(
-                          Icons.calendar_month,
-                          color: Colors.orange,
-                          size: 40,
-                        )),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.home,
-                          color: Colors.orange,
-                          size: 40,
-                        )),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Workout()));
-                        },
-                        child: const Icon(
-                          Icons.fitness_center,
-                          color: Colors.orange,
-                          size: 40,
-                        )),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.045),
-                    TextButton(
-                        style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const water()));
-                        },
-                        child: const Icon(
-                          Icons.water_drop,
-                          color: Colors.orange,
-                          size: 40,
-                        ))
-                  ]))
+              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
             ])),
         floatingActionButton: FloatingActionButton.extended(
             onPressed: () => showDialog(
