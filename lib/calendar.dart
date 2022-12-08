@@ -19,7 +19,8 @@ class _CalendarState extends State<Calendar> {
       today = day;
     });}
   late Map<DateTime,List<Event>> selectedEvents;
-  TextEditingController _eventController = TextEditingController();
+  final TextEditingController _eventController = TextEditingController();
+  final TextEditingController _eventController2 = TextEditingController();
   @override
   void initState(){
     selectedEvents = {};
@@ -31,6 +32,7 @@ class _CalendarState extends State<Calendar> {
   @override
   void dispose(){
     _eventController.dispose();
+    _eventController2.dispose();
     super.dispose();
   }
   @override
@@ -88,7 +90,7 @@ class _CalendarState extends State<Calendar> {
             ),
             ..._getEventsFromDay(today).map((Event event) => Row(children:[
                 Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
-                  title: Text(event.title),
+                  title: Text(event.title2),
                   tileColor:  Colors.orange
                 )),
                 Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
@@ -103,17 +105,21 @@ class _CalendarState extends State<Calendar> {
         context: context,
         builder:(context)=>AlertDialog(
           title: Text('add Event'),
-          content: TextFormField(controller: _eventController),
+          content: Row(children: [
+            TextFormField(controller: _eventController),
+            TextFormField(controller: _eventController2)
+          ],),
           actions: [
             Row(children:[
             TextButton(
               child:Text('ok'),
               onPressed: () {
-                if(_eventController.text.isEmpty){
+                if(_eventController.text.isEmpty || _eventController2.text.isEmpty){
 
                 }else{
                   if(selectedEvents[today] != null){
                     selectedEvents[today]?.add(Event(title: _eventController.text));
+                    selectedEvents[today]?.add(Event2(title2: _eventController2.text));
                   }else {
                     selectedEvents[today] = [
                       Event(title: _eventController.text)
@@ -121,6 +127,7 @@ class _CalendarState extends State<Calendar> {
                   }
                   Navigator.pop(context);
                   _eventController.clear();
+                  _eventController2.clear();
                   setState(() {
 
                   });
