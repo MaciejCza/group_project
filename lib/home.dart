@@ -3,15 +3,16 @@ import 'package:busy_bee_planner/water.dart';
 import 'package:busy_bee_planner/workout.dart';
 import 'package:flutter/material.dart';
 import 'calendar.dart';
+import 'homepage.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class Navig extends StatefulWidget {
+  const Navig({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<Navig> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<Navig> {
   int currentIndex = 0;
   final screens = [
     const Shopping(),
