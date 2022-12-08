@@ -210,6 +210,61 @@ class _MainPageState extends State<MainPage> {
                 BorderRadius.circular(5.0)),
           )),
     ],)
-  ],))]));
+    ],)
+    ),
+      Container(child:
+      Column(children: [Text('Hydrate yourself',
+          style:TextStyle(fontSize: 20)),
+        Container(child:
+        Row(children:[
+          Icon(Icons.local_drink,
+              color: Colors.orange,
+              size: 30),
+          Spacer(),
+          Text('$glass glass',
+          style:TextStyle(fontSize: 20)),
+          Spacer(),
+          Wrap(
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    glass-=1;
+                    if (glass < 0) {
+                      glass+=1;
+                    }
+                  });
+                },
+                style: TextButton.styleFrom(
+                  side: const BorderSide(color: Colors.orange),
+                  shape: const CircleBorder(),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.orange,
+                ),
+                child: const Text('-'),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    glass+=1;
+                    if (glass > 8) {
+                      glass-=1;
+                    }
+                  });
+                },
+                style: TextButton.styleFrom(
+                  side: BorderSide(color: Colors.orange),
+                  shape: CircleBorder(),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.orange,
+                ),
+                child: const Text('+'),
+              ),
+            ],
+          ),
+        ]))],),
+      )
+    ],)
+    );
   }
 }
