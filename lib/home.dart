@@ -2,7 +2,6 @@ import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
 import 'package:busy_bee_planner/workout.dart';
 import 'package:flutter/material.dart';
-
 import 'calendar.dart';
 
 class MainPage extends StatefulWidget {
@@ -17,7 +16,7 @@ class _MainPageState extends State<MainPage> {
   final screens = [
     const Shopping(),
     const Calendar(),
-    const MainPage(), //USUŃ LOGO Z STRONY GŁÓWNEJ
+    const MainPage(),
     const Workout(),
     const water()
   ];
@@ -25,12 +24,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: screens.elementAt(currentIndex),
+        body:
+        Container(
+          child: screens.elementAt(currentIndex)
         ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.yellow,
+          selectedItemColor: Colors.orange,
           iconSize: 30,
           //backgroundColor: Colors.kolor,
           //selectedItemColor: Colors.kolor,
