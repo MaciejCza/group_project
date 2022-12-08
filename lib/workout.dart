@@ -308,17 +308,23 @@ class _WorkoutState extends State<Workout> {
             onPressed: () => showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                      title: Text('add Event'),
+                      title: const Text('Add Workout'),
                       actions: [
                         Row(children: [
                           TextButton(
                             child: Text('ok'),
-                            onPressed: () {},
+                            onPressed: () {
+                              return;
+                            },
                           ),
+                          TextButton(
+                            child: const Text('cancel'),
+                            onPressed: () => Navigator.pop(context),
+                          )
                         ])
                       ],
                     )),
-            label: const Text('add event'),
+            label: const Text('Add Workout'),
             icon: const Icon(Icons.add)));
   }
 }
