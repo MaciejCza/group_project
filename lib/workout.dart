@@ -313,8 +313,14 @@ class _WorkoutState extends State<Workout> {
                         Row(children: [
                           TextButton(
                             child: Text('ok'),
-                            onPressed: () {},
+                            onPressed: () {
+                              return;
+                            },
                           ),
+                          TextButton(
+                            child: Text('cancel'),
+                            onPressed: () => Navigator.pop(context),
+                          )
                         ])
                       ],
                     )),
