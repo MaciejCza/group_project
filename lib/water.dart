@@ -103,11 +103,15 @@ class _waterState extends State<water> {
                 ),
               ],
             ),
-          ]
-        ),
-        ),
-          ],
+
+  ]
         )
-      );
-    }
+
+        ),
+       ],
+
+        )
+
+    );
   }
+}
