@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
         ),
         Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
         const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
-        )
+        ),
       ])),br,
       Container(
         height: MediaQuery.of(context).size.height*0.08,
