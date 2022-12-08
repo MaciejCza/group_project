@@ -1,12 +1,5 @@
-import 'package:busy_bee_planner/shopping.dart';
-import 'package:busy_bee_planner/water.dart';
-
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
-
-import 'calendar.dart';
-
-TextEditingController _eventController = TextEditingController();
 
 bool checkedValue = false;
 bool checkedValue1 = false;
@@ -312,7 +305,7 @@ class _WorkoutState extends State<Workout> {
                       actions: [
                         Row(children: [
                           TextButton(
-                            child: Text('ok'),
+                            child: const Text('ok'),
                             onPressed: () {
                               return;
                             },
