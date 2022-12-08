@@ -213,17 +213,17 @@ class _MainPageState extends State<MainPage> {
     ],)
     ),
       Container(child:
-      Column(children: [Text('Hydrate yourself',
+      Column(children: [const Text('Hydrate yourself',
           style:TextStyle(fontSize: 20)),
         Container(child:
         Row(children:[
-          Icon(Icons.local_drink,
+          const Icon(Icons.local_drink,
               color: Colors.orange,
               size: 30),
-          Spacer(),
+          const Spacer(),
           Text('$glass glass',
-          style:TextStyle(fontSize: 20)),
-          Spacer(),
+          style:const TextStyle(fontSize: 20)),
+          const Spacer(),
           Wrap(
             children: [
               TextButton(
@@ -253,8 +253,8 @@ class _MainPageState extends State<MainPage> {
                   });
                 },
                 style: TextButton.styleFrom(
-                  side: BorderSide(color: Colors.orange),
-                  shape: CircleBorder(),
+                  side: const BorderSide(color: Colors.orange),
+                  shape: const CircleBorder(),
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.orange,
                 ),
