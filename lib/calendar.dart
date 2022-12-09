@@ -103,12 +103,20 @@ class _CalendarState extends State<Calendar> {
         floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
         context: context,
         builder:(context)=>AlertDialog(
-          title: Text('add Event'),
+          title: Text('add Event',style: TextStyle(color: Colors.orange),),
           content:
-            TextFormField(controller: _eventController),
+            TextFormField(controller: _eventController,style: ),
           actions: [
             Row(children:[
+              SizedBox(width: 125),
+              TextButton(
+                child:Text('cancel'),
+                onPressed: () => Navigator.pop(context),
+                style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange ),
+              ),
+            SizedBox(width: 15),
             TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange),
               child:Text('ok'),
               onPressed: () {
                 if(_eventController.text.isEmpty){
@@ -130,11 +138,7 @@ class _CalendarState extends State<Calendar> {
                 return;
               },
             ),
-            TextButton(
-              child:Text('cancel'),
-              onPressed: () => Navigator.pop(context),
-              style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange ),
-            )
+
             ])],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
   }
