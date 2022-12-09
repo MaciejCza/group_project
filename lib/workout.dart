@@ -8,11 +8,16 @@ bool checkedValue3 = false;
 double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
+double iconSize = 0;
+double checkSize = 0;
 int adding = 0;
 var date1 = const Text('');
 double size1 = 0;
 var title1 = const Text('');
 var check1 = const Text('');
+bool col = false;
+
+const Color kColor = Colors.orange;
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -32,6 +37,8 @@ class _WorkoutState extends State<Workout> {
         setState(() {
           date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
           title1 = const Text('  ABS and Back', style: TextStyle(fontSize: 20));
+          iconSize = 24;
+          checkSize = 1;
         });
       },
     );
@@ -56,8 +63,6 @@ class _WorkoutState extends State<Workout> {
   }
 
   Widget build(BuildContext context) {
-    final text_color = Colors.grey[100];
-    final my_color_variable = Colors.red;
     return Scaffold(
       body: Container(
           height: MediaQuery.of(context).size.height,
@@ -131,17 +136,20 @@ class _WorkoutState extends State<Workout> {
                                   style: const TextStyle(fontSize: 10)))
                         ])),
                     Container(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: MediaQuery.of(context).size.width - 14,
+                        height: MediaQuery.of(context).size.height *
+                            0.1 *
+                            checkSize,
+                        width:
+                            MediaQuery.of(context).size.width - 14 * checkSize,
                         decoration: const BoxDecoration(color: Colors.white),
                         child: Column(children: [
                           Row(children: [date1]),
                           // alignment: Alignment.topRight,
                           Row(children: [
-                            const Icon(
+                            Icon(
                               Icons.fitness_center,
-                              color: Colors.orange,
-                              size: 24,
+                              color: kColor,
+                              size: iconSize,
                               semanticLabel:
                                   'Text to announce in accessibility modes',
                             ),
