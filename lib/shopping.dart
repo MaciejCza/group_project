@@ -21,11 +21,16 @@ class _ShoppingState extends State<Shopping> {
       child: const Text("OK"),
       onPressed: () { },
     );
+    Widget cancelButton = TextButton(
+      child: const Text("Cancel"),
+      onPressed: () { },
+    );
     AlertDialog alert = AlertDialog(
       title: const Text("Add new item"),
       content: const TextField(),
       actions: [
         okButton,
+        cancelButton,
       ],
     );
     showDialog(
