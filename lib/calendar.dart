@@ -133,6 +133,7 @@ class _CalendarState extends State<Calendar> {
             TextButton(
               child:Text('cancel'),
               onPressed: () => Navigator.pop(context),
+              style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange ),
             )
             ])],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
