@@ -1,12 +1,5 @@
-import 'package:busy_bee_planner/shopping.dart';
-import 'package:busy_bee_planner/water.dart';
-
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:flutter/material.dart';
-
-import 'calendar.dart';
-
-TextEditingController _eventController = TextEditingController();
 
 bool checkedValue = false;
 bool checkedValue1 = false;
@@ -15,6 +8,9 @@ bool checkedValue3 = false;
 double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
+
+var date1 = Text('Today workout', style: TextStyle(fontSize: 20));
+late final IconData? icoen;
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -106,10 +102,7 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            Row(children: const [
-                              Text('Today workout',
-                                  style: TextStyle(fontSize: 20)),
-                            ]),
+                            Row(children: [date1]),
                             // alignment: Alignment.topRight,
                             Row(children: [
                               const Icon(
@@ -312,7 +305,7 @@ class _WorkoutState extends State<Workout> {
                       actions: [
                         Row(children: [
                           TextButton(
-                            child: Text('ok'),
+                            child: const Text('ok'),
                             onPressed: () {
                               return;
                             },
