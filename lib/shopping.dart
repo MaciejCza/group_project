@@ -29,8 +29,8 @@ class _ShoppingState extends State<Shopping> {
       title: const Text("Add new item"),
       content: const TextField(),
       actions: [
-        okButton,
         cancelButton,
+        okButton,
       ],
     );
     showDialog(
