@@ -8,34 +8,7 @@ bool checkedValue3 = false;
 double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
-
-showAlertDialog(BuildContext context) {
-  Widget okButton = TextButton(
-    child: const Text("OK"),
-    onPressed: () {},
-  );
-  Widget cancelButton = TextButton(
-    child: const Text("Cancel"),
-    onPressed: () {},
-  );
-  AlertDialog alert = AlertDialog(
-    title: const Text("Add new item"),
-    content: const TextField(),
-    actions: [
-      cancelButton,
-      okButton,
-    ],
-  );
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-
-var date1 = Text('Today workout', style: TextStyle(fontSize: 20));
-late final IconData? icoen;
+var date1 = const Text('');
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -45,7 +18,35 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
-  @override
+  showAlertDialog(BuildContext context) {
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () {
+        setState(() {
+          date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
+        });
+      },
+    );
+    Widget cancelButton = TextButton(
+      child: const Text("Cancel"),
+      onPressed: () => Navigator.pop(context),
+    );
+    AlertDialog alert = AlertDialog(
+      title: const Text("Add new workout"),
+      content: const TextField(),
+      actions: [
+        cancelButton,
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
