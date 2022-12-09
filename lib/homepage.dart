@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
         ),
         Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
         const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
-        )
+        ),
       ])),br,
       Container(
         height: MediaQuery.of(context).size.height*0.08,
@@ -210,6 +210,61 @@ class _MainPageState extends State<MainPage> {
                 BorderRadius.circular(5.0)),
           )),
     ],)
-  ],))]));
+    ],)
+    ),
+      Container(child:
+      Column(children: [const Text('Hydrate yourself',
+          style:TextStyle(fontSize: 20)),
+        Container(child:
+        Row(children:[
+          const Icon(Icons.local_drink,
+              color: Colors.orange,
+              size: 30),
+          const Spacer(),
+          Text('$glass glass',
+          style:const TextStyle(fontSize: 20)),
+          const Spacer(),
+          Wrap(
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    glass-=1;
+                    if (glass < 0) {
+                      glass+=1;
+                    }
+                  });
+                },
+                style: TextButton.styleFrom(
+                  side: const BorderSide(color: Colors.orange),
+                  shape: const CircleBorder(),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.orange,
+                ),
+                child: const Text('-'),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    glass+=1;
+                    if (glass > 8) {
+                      glass-=1;
+                    }
+                  });
+                },
+                style: TextButton.styleFrom(
+                  side: const BorderSide(color: Colors.orange),
+                  shape: const CircleBorder(),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.orange,
+                ),
+                child: const Text('+'),
+              ),
+            ],
+          ),
+        ]))],),
+      )
+    ],)
+    );
   }
 }

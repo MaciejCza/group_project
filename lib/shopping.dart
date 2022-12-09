@@ -16,12 +16,32 @@ double bar = 0;
 int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
-
+  showAlertDialog(BuildContext context){
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () { },
+    );
+    AlertDialog alert = AlertDialog(
+      title: const Text("Add new item"),
+      content: const TextField(),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showAlertDialog(context);
+          },
           backgroundColor: Colors.orangeAccent,
           child: const Icon(Icons.add),
         ),
