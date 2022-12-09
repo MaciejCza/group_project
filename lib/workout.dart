@@ -9,6 +9,9 @@ double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
 
+var date1 = Text('Today workout', style: TextStyle(fontSize: 20));
+late final IconData? icoen;
+
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
 
@@ -99,10 +102,7 @@ class _WorkoutState extends State<Workout> {
                           width: MediaQuery.of(context).size.width - 14,
                           decoration: const BoxDecoration(color: Colors.white),
                           child: Column(children: [
-                            Row(children: const [
-                              Text('Today workout',
-                                  style: TextStyle(fontSize: 20)),
-                            ]),
+                            Row(children: [date1]),
                             // alignment: Alignment.topRight,
                             Row(children: [
                               const Icon(
