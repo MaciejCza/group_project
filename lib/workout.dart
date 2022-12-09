@@ -9,6 +9,9 @@ double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
 double iconSize = 0;
+double checkSize1 = 0;
+double checkSize2 = 0;
+double checkSize3 = 0;
 double checkSize = 0;
 int adding = 0;
 var date1 = const Text('');
@@ -33,12 +36,21 @@ class _WorkoutState extends State<Workout> {
       child: const Text("OK"),
       onPressed: () {
         Navigator.pop(context);
-
+        adding = adding + 1;
         setState(() {
-          date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
-          title1 = const Text('  ABS and Back', style: TextStyle(fontSize: 20));
-          iconSize = 24;
-          checkSize = 1;
+          if (adding == 1) {
+            date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
+            title1 =
+                const Text('  ABS and Back', style: TextStyle(fontSize: 20));
+            iconSize = 24;
+            checkSize = 1;
+          } else if (adding == 2) {
+            checkSize1 = 1;
+          } else if (adding == 3) {
+            checkSize2 = 1;
+          } else if (adding == 4) {
+            checkSize3 = 1;
+          }
         });
       },
     );
@@ -184,8 +196,11 @@ class _WorkoutState extends State<Workout> {
                           ]),
                         ])),
                     Container(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: MediaQuery.of(context).size.width - 14,
+                        height: MediaQuery.of(context).size.height *
+                            0.1 *
+                            checkSize1,
+                        width:
+                            MediaQuery.of(context).size.width - 14 * checkSize1,
                         decoration: const BoxDecoration(color: Colors.white),
                         child: Column(children: [
                           Row(children: const [
@@ -231,8 +246,11 @@ class _WorkoutState extends State<Workout> {
                           ]),
                         ])),
                     Container(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: MediaQuery.of(context).size.width - 14,
+                        height: MediaQuery.of(context).size.height *
+                            0.1 *
+                            checkSize2,
+                        width:
+                            MediaQuery.of(context).size.width - 14 * checkSize2,
                         decoration: const BoxDecoration(color: Colors.white),
                         child: Column(children: [
                           Row(children: const [
@@ -281,8 +299,11 @@ class _WorkoutState extends State<Workout> {
                               ])),
                         ])),
                     Container(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: MediaQuery.of(context).size.width - 14,
+                        height: MediaQuery.of(context).size.height *
+                            0.1 *
+                            checkSize3,
+                        width:
+                            MediaQuery.of(context).size.width - 14 * checkSize3,
                         decoration: const BoxDecoration(color: Colors.white),
                         child: Column(children: [
                           Row(children: const [
