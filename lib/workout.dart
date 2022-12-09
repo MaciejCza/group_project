@@ -8,7 +8,11 @@ bool checkedValue3 = false;
 double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
+int adding = 0;
 var date1 = const Text('');
+double size1 = 0;
+var title1 = const Text('');
+var check1 = const Text('');
 
 class Workout extends StatefulWidget {
   const Workout({Key? key}) : super(key: key);
@@ -18,12 +22,16 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
+  late final Color customColor;
   showAlertDialog(BuildContext context) {
     Widget okButton = TextButton(
       child: const Text("OK"),
       onPressed: () {
+        Navigator.pop(context);
+
         setState(() {
           date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
+          title1 = const Text('  ABS and Back', style: TextStyle(fontSize: 20));
         });
       },
     );
@@ -48,6 +56,8 @@ class _WorkoutState extends State<Workout> {
   }
 
   Widget build(BuildContext context) {
+    final text_color = Colors.grey[100];
+    final my_color_variable = Colors.red;
     return Scaffold(
       body: Container(
           height: MediaQuery.of(context).size.height,
@@ -131,12 +141,11 @@ class _WorkoutState extends State<Workout> {
                             const Icon(
                               Icons.fitness_center,
                               color: Colors.orange,
-                              size: 24.0,
+                              size: 24,
                               semanticLabel:
                                   'Text to announce in accessibility modes',
                             ),
-                            const Text('  ABS and Back',
-                                style: TextStyle(fontSize: 20)),
+                            title1,
                             const Expanded(child: SizedBox()),
                             Theme(
                                 data: ThemeData(
