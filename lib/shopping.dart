@@ -18,15 +18,15 @@ class _ShoppingState extends State<Shopping> {
 
   showAlertDialog(BuildContext context){
     Widget okButton = TextButton(
-      child: const Text("OK"),
+      child: const Text("OK", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
       onPressed: () { },
     );
     Widget cancelButton = TextButton(
-      child: const Text("Cancel"),
+      child: const Text("Cancel", style: TextStyle(color: Colors.orange)),
       onPressed: () { },
     );
     AlertDialog alert = AlertDialog(
-      title: const Text("Add new item"),
+      title: const Text("Add new item", style: TextStyle(color: Colors.orangeAccent)),
       content: const TextField(),
       actions: [
         cancelButton,
