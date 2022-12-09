@@ -91,7 +91,7 @@ class _CalendarState extends State<Calendar> {
                 SizedBox(height: 2),
                 Row(children:[
               Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
-                  title: Text(event.title),
+                  title: Text(event.title,maxLines: 1),
                   tileColor:  Colors.orange
               )),
               Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
