@@ -91,12 +91,12 @@ class _CalendarState extends State<Calendar> {
                 SizedBox(height: 2),
                 Row(children:[
               Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
-                  title: Text(event.title,maxLines: 1),
+                  title: Text(event.title,maxLines: 1,style: TextStyle(fontSize: 15)),
                   tileColor:  Colors.orange
               )),
               Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
                   tileColor: Colors.white,
-                  title:Text(event.title ,style: TextStyle(fontSize: 20)) ))])])
+                  title:Text(event.title ,maxLines: 1,style: TextStyle(fontSize: 15)) ))])])
           )])
           )])
     ),
@@ -105,7 +105,7 @@ class _CalendarState extends State<Calendar> {
         builder:(context)=>AlertDialog(
           title: Text('add Event',style: TextStyle(color: Colors.orange),),
           content:
-            TextFormField(controller: _eventController),
+            TextFormField(controller: _eventController,maxLength: 40),
           actions: [
             Row(children:[
               SizedBox(width: 125),
