@@ -105,7 +105,7 @@ class _CalendarState extends State<Calendar> {
         builder:(context)=>AlertDialog(
           title: Text('add Event',style: TextStyle(color: Colors.orange),),
           content:
-            TextFormField(controller: _eventController,style: ),
+            TextFormField(controller: _eventController),
           actions: [
             Row(children:[
               SizedBox(width: 125),
