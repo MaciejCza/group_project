@@ -177,14 +177,6 @@ class _ShoppingState extends State<Shopping> {
                       },
                     ),
                   ],),),br,
-                // Container( child: CircleAvatar(
-                //   backgroundColor: Colors.orange,
-                //   child: IconButton(
-                //     color: Colors.white,
-                //     onPressed: () {},
-                //     icon: Icon(Icons.add),
-                //   ),
-                // ),),
     ])
     )),);
   }
