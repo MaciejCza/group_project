@@ -14,6 +14,7 @@ double checkSize1 = 0;
 double checkSize2 = 0;
 double checkSize3 = 0;
 double checkSize = 0;
+int firstsize = 1;
 int adding = 0;
 var date1 = const Text('');
 double size1 = 0;
@@ -40,6 +41,7 @@ class _WorkoutState extends State<Workout> {
         adding = adding + 1;
         setState(() {
           if (adding == 1) {
+            firstsize = 0;
             date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
             title1 =
                 const Text('  ABS and Back', style: TextStyle(fontSize: 20));
@@ -146,8 +148,12 @@ class _WorkoutState extends State<Workout> {
                               height:
                                   MediaQuery.of(context).size.height * 0.024,
                               child: Text('$workstr out of 4 workouts',
-                                  style: const TextStyle(fontSize: 10)))
+                                  style: const TextStyle(fontSize: 10))),
                         ])),
+                    SizedBox(
+                      height:
+                          MediaQuery.of(context).size.height * 0.5 * firstsize,
+                    ),
                     Container(
                         height: MediaQuery.of(context).size.height *
                             0.1 *
