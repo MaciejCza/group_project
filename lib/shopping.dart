@@ -81,6 +81,15 @@ class _ShoppingState extends State<Shopping> {
                     direction: Axis.horizontal,
                     center: Text('$progress out of 4'),
                   ),),br,
+                // ListView.builder(
+                //     itemCount: 5,
+                //     itemBuilder: (BuildContext context, i){
+                //       return const ListTile(
+                //         leading: Icon(Icons.wheelchair_pickup),
+                //         trailing: Text("początek",style: TextStyle(color: Colors.green, fontSize: 15),),
+                //         title: Text("Test"),
+                //       );
+                //     }),
                 Container(
                   height: MediaQuery.of(context).size.height*0.08,
                   width: MediaQuery.of(context).size.width *0.9,
