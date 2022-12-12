@@ -16,12 +16,39 @@ double bar = 0;
 int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
-
+  showAlertDialog(BuildContext context){
+    Widget okButton = TextButton(
+      onPressed: () { },
+      style: TextButton.styleFrom(backgroundColor: Colors.orange),
+      child: const Text("OK", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+    );
+    Widget cancelButton = TextButton(
+      onPressed: () => Navigator.pop(context),
+      style: TextButton.styleFrom(backgroundColor: Colors.orange),
+      child: const Text("Cancel", style: TextStyle(color: Colors.black))
+    );
+    AlertDialog alert = AlertDialog(
+      title: const Text("Add new item", style: TextStyle(color: Colors.orangeAccent)),
+      content: const TextField(),
+      actions: [
+        cancelButton,
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showAlertDialog(context);
+          },
           backgroundColor: Colors.orangeAccent,
           child: const Icon(Icons.add),
         ),
@@ -150,14 +177,6 @@ class _ShoppingState extends State<Shopping> {
                       },
                     ),
                   ],),),br,
-                // Container( child: CircleAvatar(
-                //   backgroundColor: Colors.orange,
-                //   child: IconButton(
-                //     color: Colors.white,
-                //     onPressed: () {},
-                //     icon: Icon(Icons.add),
-                //   ),
-                // ),),
     ])
     )),);
   }

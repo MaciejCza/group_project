@@ -1,11 +1,5 @@
-import 'main.dart';
-import 'app.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:intl/intl.dart';
-import 'workout.dart';
-import 'shopping.dart';
-import 'water.dart';
 import 'events.dart';
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
@@ -20,7 +14,6 @@ class _CalendarState extends State<Calendar> {
     });}
   late Map<DateTime,List<Event>> selectedEvents;
   final TextEditingController _eventController = TextEditingController();
-  final TextEditingController _eventController2 = TextEditingController();
   @override
   void initState(){
     selectedEvents = {};
@@ -32,12 +25,12 @@ class _CalendarState extends State<Calendar> {
   @override
   void dispose(){
     _eventController.dispose();
-    _eventController2.dispose();
     super.dispose();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body:
     Container(height: MediaQuery.of(context).size.height,
         child:
@@ -56,8 +49,8 @@ class _CalendarState extends State<Calendar> {
             ]),
             const SizedBox(height: 20)
           ]),
-          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.45,child:
-          SingleChildScrollView(child:
+          Container(padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),height: MediaQuery.of(context).size.height*0.345,child:
+          Container(child:
           Column(children: [
             Container(height: MediaQuery.of(context).size.height*0.03,width: MediaQuery.of(context).size.width*0.3 ,decoration: const BoxDecoration(color: Colors.orange,borderRadius: BorderRadius.all(Radius.circular(5))),alignment: Alignment.center,child:
             Text(datowski())
@@ -88,38 +81,49 @@ class _CalendarState extends State<Calendar> {
                   ),
                 )
             ),
-            ..._getEventsFromDay(today).map((Event event) => Row(children:[
-                Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
-                  title: Text(event.title2),
-                  tileColor:  Colors.orange
-                )),
-                Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
-                tileColor: Colors.white,
-                title:Text(event.title ,style: TextStyle(fontSize: 20)) ))]))
           ],
           )
-          )),
-          ])
+          )
+          ),
+          SingleChildScrollView(child:Column(children:[
+            ..._getEventsFromDay(today).map((Event event) =>
+                Column(children: [
+                SizedBox(height: 2),
+                Row(children:[
+              Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
+                  title: Text(event.title,maxLines: 1,style: TextStyle(fontSize: 15)),
+                  tileColor:  Colors.orange
+              )),
+              Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
+                  tileColor: Colors.white,
+                  title:Text(event.title ,maxLines: 1,style: TextStyle(fontSize: 15)) ))])])
+          )])
+          )])
     ),
         floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
         context: context,
         builder:(context)=>AlertDialog(
-          title: Text('add Event'),
-          content: Row(children: [
-            TextFormField(controller: _eventController),
-            TextFormField(controller: _eventController2)
-          ],),
+          title: Text('add Event',style: TextStyle(color: Colors.orange),),
+          content:
+            TextFormField(controller: _eventController,maxLength: 40),
           actions: [
             Row(children:[
+              SizedBox(width: 125),
+              TextButton(
+                child:Text('cancel'),
+                onPressed: () => Navigator.pop(context),
+                style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange ),
+              ),
+            SizedBox(width: 15),
             TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange),
               child:Text('ok'),
               onPressed: () {
-                if(_eventController.text.isEmpty || _eventController2.text.isEmpty){
+                if(_eventController.text.isEmpty){
 
                 }else{
                   if(selectedEvents[today] != null){
                     selectedEvents[today]?.add(Event(title: _eventController.text));
-                    selectedEvents[today]?.add(Event2(title2: _eventController2.text));
                   }else {
                     selectedEvents[today] = [
                       Event(title: _eventController.text)
@@ -127,7 +131,6 @@ class _CalendarState extends State<Calendar> {
                   }
                   Navigator.pop(context);
                   _eventController.clear();
-                  _eventController2.clear();
                   setState(() {
 
                   });
@@ -135,10 +138,7 @@ class _CalendarState extends State<Calendar> {
                 return;
               },
             ),
-            TextButton(
-              child:Text('cancel'),
-              onPressed: () => Navigator.pop(context),
-            )
+
             ])],)), label: const Text('add event'),icon: const Icon(Icons.add)),
     );
   }
