@@ -8,6 +8,7 @@ bool checkedValue3 = false;
 double workouts = 0;
 int workoutst = workouts.toInt();
 String workstr = workoutst.toString();
+String name1 = "";
 double iconSize = 0;
 double checkSize1 = 0;
 double checkSize2 = 0;
