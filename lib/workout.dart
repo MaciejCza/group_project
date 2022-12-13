@@ -35,6 +35,13 @@ class Workout extends StatefulWidget {
 
 class _WorkoutState extends State<Workout> {
   late final Color customColor;
+  final controler = TextEditingController();
+  @override
+  void dispose() {
+    controler.dispose();
+    super.dispose();
+  }
+
   showAlertDialog(BuildContext context) {
     Widget okButton = TextButton(
       child: const Text("OK"),
@@ -47,7 +54,7 @@ class _WorkoutState extends State<Workout> {
             String name1 = _messageController.text;
             date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
             title1 =
-                const Text('  ABS and Back', style: TextStyle(fontSize: 20));
+                Text('  ' + controler.text, style: TextStyle(fontSize: 20));
             iconSize = 24;
             checkSize = 1;
           } else if (adding == 2) {
@@ -66,7 +73,9 @@ class _WorkoutState extends State<Workout> {
     );
     AlertDialog alert = AlertDialog(
       title: const Text("Add new workout"),
-      content: const TextField(),
+      content: TextField(
+        controller: controler,
+      ),
       actions: [
         cancelButton,
         okButton,
@@ -123,10 +132,7 @@ class _WorkoutState extends State<Workout> {
                                 ))
                           ])),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height *
-                            0.04 *
-                            firstsize,
-                      ),
+                          height: MediaQuery.of(context).size.height * 0.05),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
@@ -238,7 +244,7 @@ class _WorkoutState extends State<Workout> {
                                 semanticLabel:
                                     'Text to announce in accessibility modes',
                               ),
-                              const Text(' Leg day',
+                              Text('  ${controler.text}',
                                   style: TextStyle(fontSize: 20)),
                               const Expanded(child: SizedBox()),
                               Theme(
