@@ -67,7 +67,7 @@ class _ShoppingState extends State<Shopping> {
                     Container(margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),child:
                       const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
                     )
-                  ])),br,
+                  ]);),br,
                 Container(
                   height: MediaQuery.of(context).size.height * 0.04,
                   width: MediaQuery.of(context).size.width *0.9,
