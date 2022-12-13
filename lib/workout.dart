@@ -283,6 +283,10 @@ class _WorkoutState extends State<Workout> {
                                   ))
                             ]),
                           ])),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height *
+                              0.2 *
+                              (checkSize1 - checkSize2)),
                       Container(
                           height: MediaQuery.of(context).size.height *
                               0.1 *
@@ -304,7 +308,7 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  const Text(' Full body workout',
+                                  Text('  ${controler.text}',
                                       style: TextStyle(fontSize: 20)),
                                   const Expanded(child: SizedBox()),
                                   Theme(
@@ -357,7 +361,7 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  const Text(' Jogging',
+                                  Text('  ${controler.text}',
                                       style: TextStyle(fontSize: 20)),
                                   const Expanded(child: SizedBox()),
                                   Theme(
