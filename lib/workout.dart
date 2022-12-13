@@ -17,6 +17,7 @@ double checkSize2 = 0;
 double checkSize3 = 0;
 double checkSize = 0;
 int firstsize = 1;
+int secondsize = 0;
 int adding = 0;
 var date1 = const Text('');
 double size1 = 0;
@@ -51,10 +52,11 @@ class _WorkoutState extends State<Workout> {
         setState(() {
           if (adding == 1) {
             firstsize = 0;
+            secondsize = 1;
             String name1 = _messageController.text;
             date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
             title1 =
-                Text('  ' + controler.text, style: TextStyle(fontSize: 20));
+                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
             iconSize = 24;
             checkSize = 1;
           } else if (adding == 2) {
@@ -132,7 +134,8 @@ class _WorkoutState extends State<Workout> {
                                 ))
                           ])),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.05),
+                          height: MediaQuery.of(context).size.height * 0.05 +
+                              secondsize),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width - 14,
@@ -225,6 +228,10 @@ class _WorkoutState extends State<Workout> {
                                   )),
                             ]),
                           ])),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height *
+                              0.3 *
+                              (checkSize - checkSize1)),
                       Container(
                           height: MediaQuery.of(context).size.height *
                               0.1 *
