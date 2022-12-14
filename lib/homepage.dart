@@ -69,8 +69,8 @@ class _MainPageState extends State<MainPage> {
     style: const TextStyle(fontSize: 10)))
     ])),
     Container(
-    height: MediaQuery.of(context).size.height * 0.1,
-    width: MediaQuery.of(context).size.width - 14,
+    height: MediaQuery.of(context).size.height * 0.1 * checkSize,
+    width: MediaQuery.of(context).size.width - 14 * checkSize,
     decoration: const BoxDecoration(color: Colors.white),
     child: Column(children: [
     Row(children: const [
@@ -78,7 +78,9 @@ class _MainPageState extends State<MainPage> {
     style: TextStyle(fontSize: 20)),
     ]),
     // alignment: Alignment.topRight,
-    Row(children: [
+    Row(
+
+    children: [
     const Icon(
     Icons.fitness_center,
     color: Colors.orange,
@@ -86,8 +88,7 @@ class _MainPageState extends State<MainPage> {
     semanticLabel:
     'Text to announce in accessibility modes',
     ),
-      const Text('  ABS and Back',
-          style: TextStyle(fontSize: 20)),
+      title1,
       const Expanded(child: SizedBox()),
       Theme(
           data: ThemeData(
