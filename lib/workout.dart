@@ -59,22 +59,22 @@ class _WorkoutState extends State<Workout> {
             secondsize = 1;
             String name1 = _messageController.text;
             date1 = const Text('Today workout', style: TextStyle(fontSize: 20));
-            title1 =
-                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
+            title1 = Text('  ${controler.text}',
+                style: const TextStyle(fontSize: 20));
             iconSize = 24;
             checkSize = 1;
           } else if (adding == 2) {
             checkSize1 = 1;
-            title2 =
-                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
+            title2 = Text('  ${controler.text}',
+                style: const TextStyle(fontSize: 20));
           } else if (adding == 3) {
             checkSize2 = 1;
-            title3 =
-                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
+            title3 = Text('  ${controler.text}',
+                style: const TextStyle(fontSize: 20));
           } else if (adding == 4) {
             checkSize3 = 1;
-            title4 =
-                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
+            title4 = Text('  ${controler.text}',
+                style: const TextStyle(fontSize: 20));
           }
         });
       },
