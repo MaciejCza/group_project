@@ -10,7 +10,7 @@ class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPage> createState() => _MainPageState(); //kalenrarz overflow napraw
 }
 
 class _MainPageState extends State<MainPage> {
@@ -28,101 +28,8 @@ class _MainPageState extends State<MainPage> {
         ),
       ])),br,
       Container(
-        height: MediaQuery.of(context).size.height*0.08,
-        width: MediaQuery.of(context).size.width *0.9,
-        color: Colors.white,
-        child: Column(children: [
-          CheckboxListTile(
-            title: Text('Buy jacket', style: TextStyle(decoration: checkedIs== true ? TextDecoration.lineThrough : TextDecoration.none)),
-            activeColor: Colors.orange,
-            value: checkedIs,
-            onChanged: (value) {
-              setState(() {
-                if(checkedIs == false){
-                  bar = bar + 1/4;
-                  progress = progress +1;
-                }
-                else {
-                  bar = bar - 1/4;
-                  progress = progress - 1;
-                }
-                checkedIs = !checkedIs;
-              });
-            },
-          ),
-        ],),),br,
-      Container(
-        height: MediaQuery.of(context).size.height*0.08,
-        width: MediaQuery.of(context).size.width *0.9,
-        color: Colors.white,
-        child: Column(children: [
-          CheckboxListTile(
-            title: Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-            activeColor: Colors.orange,
-            value: isChecked,
-            onChanged: (value) {
-              setState(() {
-                if(isChecked == false){
-                  bar = bar + 1/4;
-                  progress = progress + 1;
-                }
-                else {
-                  bar = bar - 1/4;
-                  progress = progress - 1;
-                }
-                isChecked = !isChecked;
-              });
-            },
-          ),
-        ],),), br,
-      Container(
-        height: MediaQuery.of(context).size.height*0.08,
-        width: MediaQuery.of(context).size.width *0.9,
-        color: Colors.white,
-        child: Column(children: [
-          CheckboxListTile(
-            title: Text('Program button', style: TextStyle(decoration: checked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-            activeColor: Colors.orange,
-            value: checked,
-            onChanged: (value) {
-              setState(() {
-                if(checked == false){
-                  bar = bar + 1/4;
-                  progress = progress + 1;
-                }
-                else {
-                  bar = bar - 1/4;
-                  progress = progress - 1;
-                }
-                checked = !checked;
-              });
-            },
-          ),
-        ],),),br,
-      Container(
-        height: MediaQuery.of(context).size.height*0.08,
-        width: MediaQuery.of(context).size.width *0.9,
-        color: Colors.white,
-        child: Column(children: [
-          CheckboxListTile(
-            title: Text('Make everything work together', style: TextStyle(decoration: onChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-            activeColor: Colors.orange,
-            value: onChecked,
-            onChanged: (value) {
-              if(onChecked == false){
-                bar = bar + 1/4;
-                progress = progress + 1;
-              }
-              else {
-                bar = bar - 1/4;
-                progress = progress - 1;
-              }
-              setState(() {
-                onChecked = !onChecked;
-              });
-            },
-          ),
-        ],),),br,
+        //praca tomka tu <----------------------------------------------------------------------
+      ),
     Container(
     height: MediaQuery.of(context).size.height * 0.1,
     width: MediaQuery.of(context).size.width - 14,
