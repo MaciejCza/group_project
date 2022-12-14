@@ -22,6 +22,9 @@ int adding = 0;
 var date1 = const Text('');
 double size1 = 0;
 var title1 = const Text('');
+var title2 = const Text('');
+var title3 = const Text('');
+var title4 = const Text('');
 var check1 = const Text('');
 bool col = false;
 
@@ -45,6 +48,7 @@ class _WorkoutState extends State<Workout> {
 
   showAlertDialog(BuildContext context) {
     Widget okButton = TextButton(
+      style: TextButton.styleFrom(foregroundColor: Colors.orange),
       child: const Text("OK"),
       onPressed: () {
         Navigator.pop(context);
@@ -61,15 +65,22 @@ class _WorkoutState extends State<Workout> {
             checkSize = 1;
           } else if (adding == 2) {
             checkSize1 = 1;
+            title2 =
+                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
           } else if (adding == 3) {
             checkSize2 = 1;
+            title3 =
+                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
           } else if (adding == 4) {
             checkSize3 = 1;
+            title4 =
+                Text('  ${controler.text}', style: TextStyle(fontSize: 20));
           }
         });
       },
     );
     Widget cancelButton = TextButton(
+      style: TextButton.styleFrom(foregroundColor: Colors.orange),
       child: const Text("Cancel"),
       onPressed: () => Navigator.pop(context),
     );
@@ -251,8 +262,7 @@ class _WorkoutState extends State<Workout> {
                                 semanticLabel:
                                     'Text to announce in accessibility modes',
                               ),
-                              Text('  ${controler.text}',
-                                  style: TextStyle(fontSize: 20)),
+                              title2,
                               const Expanded(child: SizedBox()),
                               Theme(
                                   data: ThemeData(
@@ -308,8 +318,7 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text('  ${controler.text}',
-                                      style: TextStyle(fontSize: 20)),
+                                  title3,
                                   const Expanded(child: SizedBox()),
                                   Theme(
                                       data: ThemeData(
@@ -361,8 +370,7 @@ class _WorkoutState extends State<Workout> {
                                     semanticLabel:
                                         'Text to announce in accessibility modes',
                                   ),
-                                  Text('  ${controler.text}',
-                                      style: TextStyle(fontSize: 20)),
+                                  title4,
                                   const Expanded(child: SizedBox()),
                                   Theme(
                                       data: ThemeData(
