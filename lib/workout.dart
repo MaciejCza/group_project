@@ -48,6 +48,7 @@ class _WorkoutState extends State<Workout> {
 
   showAlertDialog(BuildContext context) {
     Widget okButton = TextButton(
+      style: TextButton.styleFrom(foregroundColor: Colors.orange),
       child: const Text("OK"),
       onPressed: () {
         Navigator.pop(context);
@@ -79,6 +80,7 @@ class _WorkoutState extends State<Workout> {
       },
     );
     Widget cancelButton = TextButton(
+      style: TextButton.styleFrom(foregroundColor: Colors.orange),
       child: const Text("Cancel"),
       onPressed: () => Navigator.pop(context),
     );
