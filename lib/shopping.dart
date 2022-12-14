@@ -13,9 +13,20 @@ double bar = 0;
 int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
+  final testing = TextEditingController();
+  @override
+  void dispose() {
+    testing.dispose();
+    super.dispose();
+  }
+
   showAlertDialog(BuildContext context){
     Widget okButton = TextButton(
-      onPressed: () { },
+      onPressed: () {
+        titles.add(testing.text);
+        Navigator.pop(context);
+        testing.clear();
+      },
       style: TextButton.styleFrom(backgroundColor: Colors.orange),
       child: const Text("OK", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
     );
@@ -26,7 +37,9 @@ class _ShoppingState extends State<Shopping> {
     );
     AlertDialog alert = AlertDialog(
       title: const Text("Add new item", style: TextStyle(color: Colors.orangeAccent)),
-      content: const TextField(),
+      content: TextField(
+        controller: testing,
+      ),
       actions: [
         cancelButton,
         okButton,
@@ -41,10 +54,10 @@ class _ShoppingState extends State<Shopping> {
   }
   List<String> titles = ["Program checkboxes", "Buy a jacket","Test"];
   List<bool> checked = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showAlertDialog(context);

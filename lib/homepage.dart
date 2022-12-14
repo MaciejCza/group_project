@@ -2,6 +2,7 @@ import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
 import 'package:busy_bee_planner/workout.dart';
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'calendar.dart';
 import 'homepage.dart';
@@ -14,6 +15,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  DateTime today = DateTime.now();
+  void _onDaySelected(DateTime day,DateTime focusedDay){
+    setState(() {
+      today = day;
+    });}
+
   @override
   Widget build(BuildContext context) {
     return Container(child:
@@ -27,6 +34,21 @@ class _MainPageState extends State<MainPage> {
         const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
         ),
       ])),br,
+      Container(child: TableCalendar(
+        firstDay: DateTime.utc(996, 1, 1),
+        lastDay: DateTime.utc(2137, 4, 20),
+        focusedDay: DateTime.now(),
+        selectedDayPredicate: (day) {
+          return isSameDay(today, day);
+        },
+        onDaySelected: (selectedDay, focusedDay) {
+          setState(() {
+            today = selectedDay;
+            today = focusedDay;
+            CalendarFormat.week; //nie działa
+          });
+        },
+      ),),
       Container(
         //praca tomka tu <----------------------------------------------------------------------
       ),
@@ -69,8 +91,8 @@ class _MainPageState extends State<MainPage> {
     style: const TextStyle(fontSize: 10)))
     ])),
     Container(
-    height: MediaQuery.of(context).size.height * 0.1,
-    width: MediaQuery.of(context).size.width - 14,
+    height: MediaQuery.of(context).size.height * 0.1 * checkSize,
+    width: MediaQuery.of(context).size.width - 14 * checkSize,
     decoration: const BoxDecoration(color: Colors.white),
     child: Column(children: [
     Row(children: const [
@@ -78,7 +100,9 @@ class _MainPageState extends State<MainPage> {
     style: TextStyle(fontSize: 20)),
     ]),
     // alignment: Alignment.topRight,
-    Row(children: [
+    Row(
+
+    children: [
     const Icon(
     Icons.fitness_center,
     color: Colors.orange,
@@ -86,8 +110,7 @@ class _MainPageState extends State<MainPage> {
     semanticLabel:
     'Text to announce in accessibility modes',
     ),
-      const Text('  ABS and Back',
-          style: TextStyle(fontSize: 20)),
+      title1,
       const Expanded(child: SizedBox()),
       Theme(
           data: ThemeData(
