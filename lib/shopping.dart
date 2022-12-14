@@ -79,7 +79,7 @@ class _ShoppingState extends State<Shopping> {
                     borderWidth: 2.0,
                     borderRadius: 12.0,
                     direction: Axis.horizontal,
-                    center: Text('$progress out of 4'),
+                    center: Text('$progress out of ${titles.length}'),
                   ),),br,
                 Container(
                   height: MediaQuery.of(context).size.height * 0.6,
