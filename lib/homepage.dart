@@ -2,6 +2,7 @@ import 'package:busy_bee_planner/shopping.dart';
 import 'package:busy_bee_planner/water.dart';
 import 'package:busy_bee_planner/workout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'calendar.dart';
@@ -34,21 +35,15 @@ class _MainPageState extends State<MainPage> {
         const Text('BusyBeePlanner',style: TextStyle(fontSize: 24),)
         ),
       ])),br,
-      Container(child: TableCalendar(
-        firstDay: DateTime.utc(996, 1, 1),
-        lastDay: DateTime.utc(2137, 4, 20),
-        focusedDay: DateTime.now(),
-        selectedDayPredicate: (day) {
-          return isSameDay(today, day);
-        },
-        onDaySelected: (selectedDay, focusedDay) {
-          setState(() {
-            today = selectedDay;
-            today = focusedDay;
-            CalendarFormat.week; //nie działa
-          });
-        },
-      ),),
+      Container(child: CalendarWeek(
+    controller: CalendarWeekController(),
+    height: 100,
+    minDate: DateTime.now().add(
+    Duration(days: -365),
+    ),
+    maxDate: DateTime.now().add(
+    Duration(days: 365),
+    ))),
       Container(
         //praca tomka tu <----------------------------------------------------------------------
       ),
