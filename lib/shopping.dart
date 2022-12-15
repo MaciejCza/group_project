@@ -13,20 +13,20 @@ double bar = 0;
 int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
-  final testing = TextEditingController();
+  final custom = TextEditingController();
   @override
   void dispose() {
-    testing.dispose();
+    custom.dispose();
     super.dispose();
   }
 
   showAlertDialog(BuildContext context){
     Widget okButton = TextButton(
       onPressed: () {
-        titles.add(testing.text);
+        titles.add(custom.text);
         setState(() { });
         Navigator.pop(context);
-        testing.clear();
+        custom.clear();
       },
       style: TextButton.styleFrom(backgroundColor: Colors.orange),
       child: const Text("OK", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
@@ -39,7 +39,15 @@ class _ShoppingState extends State<Shopping> {
     AlertDialog alert = AlertDialog(
       title: const Text("Add new item", style: TextStyle(color: Colors.orangeAccent)),
       content: TextField(
-        controller: testing,
+        controller: custom,
+        decoration: const InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),
+          ),
+        ),
       ),
       actions: [
         cancelButton,
