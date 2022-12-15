@@ -16,6 +16,7 @@ double checkSize1 = 0;
 double checkSize2 = 0;
 double checkSize3 = 0;
 double checkSize = 0;
+double checker = 1;
 int firstsize = 1;
 int secondsize = 0;
 int adding = 0;
@@ -69,12 +70,14 @@ class _WorkoutState extends State<Workout> {
                 style: const TextStyle(fontSize: 20));
           } else if (adding == 3) {
             checkSize2 = 1;
-            title3 = Text('  ${controler.text}',
+            title3 = Text(' ${controler.text}',
                 style: const TextStyle(fontSize: 20));
+            checker = 1.15;
           } else if (adding == 4) {
             checkSize3 = 1;
             title4 = Text('  ${controler.text}',
                 style: const TextStyle(fontSize: 20));
+            checker = 1.0001;
           }
         });
       },
@@ -113,7 +116,7 @@ class _WorkoutState extends State<Workout> {
             decoration: BoxDecoration(color: Colors.grey[100]),
             child: Column(children: <Widget>[
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.77,
+                height: MediaQuery.of(context).size.height * 0.77 / checker,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
