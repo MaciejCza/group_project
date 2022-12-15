@@ -90,7 +90,7 @@ class _WorkoutState extends State<Workout> {
     AlertDialog alert = AlertDialog(
       title: const Text("Add new workout"),
       content: TextField(
-        cursorColor: Colors.orange,
+        cursorColor: Colors.grey,
         controller: controler,
         decoration: const InputDecoration(
           enabledBorder: UnderlineInputBorder(
