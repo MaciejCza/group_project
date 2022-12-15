@@ -15,9 +15,9 @@ class Navig extends StatefulWidget {
 class _MainPageState extends State<Navig> {
   int currentIndex = 0;
   final screens = [
-    const MainPage(),
     const Shopping(),
     const Calendar(),
+    const MainPage(),
     const Workout(),
     const water()
   ];
