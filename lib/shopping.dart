@@ -24,6 +24,7 @@ class _ShoppingState extends State<Shopping> {
     Widget okButton = TextButton(
       onPressed: () {
         titles.add(testing.text);
+        setState(() { });
         Navigator.pop(context);
         testing.clear();
       },
