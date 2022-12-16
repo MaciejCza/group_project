@@ -8,17 +8,26 @@ class Shopping extends StatefulWidget {
   @override
   State<Shopping> createState() => _ShoppingState();
 }
-bool isChecked = false;
-bool checkedIs = false;
-bool checked = false;
-bool onChecked = false;
+
 double bar = 0;
 int progress = 0;
 class _ShoppingState extends State<Shopping> {
 
+  final custom = TextEditingController();
+  @override
+  void dispose() {
+    custom.dispose();
+    super.dispose();
+  }
+
   showAlertDialog(BuildContext context){
     Widget okButton = TextButton(
-      onPressed: () { },
+      onPressed: () {
+        titles.add(custom.text);
+        setState(() { });
+        Navigator.pop(context);
+        custom.clear();
+      },
       style: TextButton.styleFrom(backgroundColor: Colors.orange),
       child: const Text("OK", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
     );
@@ -29,7 +38,17 @@ class _ShoppingState extends State<Shopping> {
     );
     AlertDialog alert = AlertDialog(
       title: const Text("Add new item", style: TextStyle(color: Colors.orangeAccent)),
-      content: const TextField(),
+      content: TextField(
+        controller: custom,
+        decoration: const InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),
+          ),
+        ),
+      ),
       actions: [
         cancelButton,
         okButton,
@@ -42,9 +61,12 @@ class _ShoppingState extends State<Shopping> {
       },
     );
   }
+  List<String> titles = ["Program checkboxes", "Buy a jacket","Test"];
+  List<bool> checked = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showAlertDialog(context);
@@ -72,119 +94,44 @@ class _ShoppingState extends State<Shopping> {
                   height: MediaQuery.of(context).size.height * 0.04,
                   width: MediaQuery.of(context).size.width *0.9,
                   child: LiquidLinearProgressIndicator(
-                    value: bar,
+                    value: bar/titles.length,
                     valueColor: const AlwaysStoppedAnimation(Colors.orange),
                     backgroundColor: Colors.white,
                     borderColor: Colors.orangeAccent,
                     borderWidth: 2.0,
                     borderRadius: 12.0,
                     direction: Axis.horizontal,
-                    center: Text('$progress out of 4'),
+                    center: Text('$progress out of ${titles.length}'),
                   ),),br,
                 Container(
-                  height: MediaQuery.of(context).size.height*0.08,
-                  width: MediaQuery.of(context).size.width *0.9,
-                  color: Colors.white,
-                  child: Column(children: [
-                    CheckboxListTile(
-                      title: Text('Buy jacket', style: TextStyle(decoration: checkedIs== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      activeColor: Colors.orange,
-                      value: checkedIs,
-                      onChanged: (value) {
-                        setState(() {
-                          if(checkedIs == false){
-                            bar = bar + 1/4;
-                            progress = progress +1;
-                          }
-                          else {
-                            bar = bar - 1/4;
-                            progress = progress - 1;
-                          }
-                          checkedIs = !checkedIs;
-                        });
-                      },
-                    ),
-                  ],),),br,
-                Container(
-                  height: MediaQuery.of(context).size.height*0.08,
-                  width: MediaQuery.of(context).size.width *0.9,
-                  color: Colors.white,
-                  child: Column(children: [
-                    CheckboxListTile(
-                      title: Text('Program checkboxes', style: TextStyle(decoration: isChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      activeColor: Colors.orange,
-                      value: isChecked,
-                      onChanged: (value) {
-                        setState(() {
-                          if(isChecked == false){
-                            bar = bar + 1/4;
-                            progress = progress + 1;
-                          }
-                          else {
-                            bar = bar - 1/4;
-                            progress = progress - 1;
-                          }
-                          isChecked = !isChecked;
-                        });
-                      },
-                    ),
-                  ],),),br,
-                Container(
-                  height: MediaQuery.of(context).size.height*0.08,
-                  width: MediaQuery.of(context).size.width *0.9,
-                  color: Colors.white,
-                  child: Column(children: [
-                    CheckboxListTile(
-                      title: Text('Program button', style: TextStyle(decoration: checked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      activeColor: Colors.orange,
-                      value: checked,
-                      onChanged: (value) {
-                        setState(() {
-                          if(checked == false){
-                            bar = bar + 1/4;
-                            progress = progress + 1;
-                          }
-                          else {
-                            bar = bar - 1/4;
-                            progress = progress - 1;
-                          }
-                          checked = !checked;
-                        });
-                      },
-                    ),
-                  ],),),br,
-                Container(
-                  height: MediaQuery.of(context).size.height*0.08,
-                  width: MediaQuery.of(context).size.width *0.9,
-                  color: Colors.white,
-                  child: Column(children: [
-                    CheckboxListTile(
-                      title: Text('Make everything work together', style: TextStyle(decoration: onChecked== true ? TextDecoration.lineThrough : TextDecoration.none)),
-                      activeColor: Colors.orange,
-                      value: onChecked,
-                      onChanged: (value) {
-                        if(onChecked == false){
-                          bar = bar + 1/4;
-                          progress = progress + 1;
-                        }
-                        else {
-                          bar = bar - 1/4;
-                          progress = progress - 1;
-                        }
-                        setState(() {
-                          onChecked = !onChecked;
-                        });
-                      },
-                    ),
-                  ],),),br,
-                // Container( child: CircleAvatar(
-                //   backgroundColor: Colors.orange,
-                //   child: IconButton(
-                //     color: Colors.white,
-                //     onPressed: () {},
-                //     icon: Icon(Icons.add),
-                //   ),
-                // ),),
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  width: MediaQuery.of(context).size.width ,
+                  child: ListView.builder(
+                      itemCount: titles.length,
+                      itemBuilder: (context, index){
+                        return ListTile(
+                          title: CheckboxListTile(
+                            title: Text(titles[index], style: TextStyle(decoration: checked[index]== true ? TextDecoration.lineThrough : TextDecoration.none)),
+                            activeColor: Colors.orange,
+                            value: checked[index],
+                            onChanged: (value) {
+                              setState(() {
+                                if(checked[index] == false){
+                                  bar = bar + 1;
+                                  progress = progress + 1;
+                                }
+                                else {
+                                  bar = bar - 1;
+                                  progress = progress - 1;
+                                }
+                                checked[index] = !checked[index];
+                              });
+                            },
+                          ),
+                        );
+                      }
+                  ),
+                )
     ])
     )),);
   }

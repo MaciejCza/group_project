@@ -13,7 +13,7 @@ class Navig extends StatefulWidget {
 }
 
 class _MainPageState extends State<Navig> {
-  int currentIndex = 0;
+  int currentIndex = 2;
   final screens = [
     const Shopping(),
     const Calendar(),
