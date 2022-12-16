@@ -3,10 +3,7 @@ import 'package:busy_bee_planner/water.dart';
 import 'package:busy_bee_planner/workout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
-import 'calendar.dart';
-import 'homepage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
