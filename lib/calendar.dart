@@ -88,36 +88,36 @@ class _CalendarState extends State<Calendar> {
           SingleChildScrollView(child:Column(children:[
             ..._getEventsFromDay(today).map((Event event) =>
                 Column(children: [
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Row(children:[
-              Container(width: MediaQuery.of(context).size.width*0.15,child:ListTile(
-                  title: Text(event.title,maxLines: 1,style: TextStyle(fontSize: 15)),
+              Container(width: MediaQuery.of(context).size.width*0.03,child:ListTile(
+                  title: Text(event.title,maxLines: 1,style: const TextStyle(fontSize: 15)), //date
                   tileColor:  Colors.orange
               )),
               Container(width:MediaQuery.of(context).size.width*0.85 ,child:ListTile(
                   tileColor: Colors.white,
-                  title:Text(event.title ,maxLines: 1,style: TextStyle(fontSize: 15)) ))])])
+                  title:Text(event.title ,maxLines: 1,style: const TextStyle(fontSize: 15)) ))])])
           )])
           )])
     ),
         floatingActionButton: FloatingActionButton.extended(onPressed:() => showDialog(
         context: context,
         builder:(context)=>AlertDialog(
-          title: Text('add Event',style: TextStyle(color: Colors.orange),),
+          title: const Text('add Event',style: TextStyle(color: Colors.orange),),
           content:
             TextFormField(controller: _eventController,maxLength: 40),
           actions: [
             Row(children:[
-              SizedBox(width: 125),
+              const SizedBox(width: 125),
               TextButton(
-                child:Text('cancel'),
                 onPressed: () => Navigator.pop(context),
                 style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange ),
+                child:const Text('cancel'),
               ),
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             TextButton(
               style: TextButton.styleFrom(foregroundColor: Colors.black,backgroundColor: Colors.orange),
-              child:Text('ok'),
+              child:const Text('ok'),
               onPressed: () {
                 if(_eventController.text.isEmpty){
 
