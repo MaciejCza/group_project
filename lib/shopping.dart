@@ -24,6 +24,7 @@ class _ShoppingState extends State<Shopping> {
     Widget okButton = TextButton(
       onPressed: () {
         titles.add(custom.text);
+        checked.add(false);
         setState(() { });
         Navigator.pop(context);
         custom.clear();
@@ -62,7 +63,7 @@ class _ShoppingState extends State<Shopping> {
     );
   }
   List<String> titles = ["Program checkboxes", "Buy a jacket","Test"];
-  List<bool> checked = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+  List<bool> checked = [false,false,false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
